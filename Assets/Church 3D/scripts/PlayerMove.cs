@@ -18,7 +18,7 @@ void Update()
     y = Input.GetAxis("Vertical");
 
     transform.Rotate(0, x * Time.deltaTime *rotationSpeed, 0);
-    transform.Translate(0, 0, Y * Time.deltaTime*runSpeed);
+    transform.Translate(0, 0, y * Time.deltaTime*runSpeed);
     animator.SetFloat("Velx" , x);
     animator.SetFloat("VelY", y);
 }
