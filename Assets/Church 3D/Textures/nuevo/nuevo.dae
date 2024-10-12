@@ -6,8 +6,13 @@
       <authoring_tool>COLLADA Mixamo exporter</authoring_tool>
       <comments/>
     </contributor>
+<<<<<<< HEAD
     <created>2024-10-11T23:28:40Z</created>
     <modified>2024-10-11T23:28:40Z</modified>
+=======
+    <created>2024-10-10T02:53:12Z</created>
+    <modified>2024-10-10T02:53:12Z</modified>
+>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
     <revision/>
     <title/>
     <unit meter="0.010000"/>
@@ -2414,7 +2419,11 @@ mixamorig_RightLeg mixamorig_Spine mixamorig_Spine1</Name_array>
     </controller>
     <controller id="ShoesController">
       <skin source="#Shoes-lib">
+<<<<<<< HEAD
         <bind_shape_matrix>1.000000 0.000000 -0.000000 0.000000 -0.000000 1.000000 -0.000000 -0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000
+=======
+        <bind_shape_matrix>1.000000 -0.000000 0.000000 0.000000 0.000000 1.000000 -0.000000 -0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000
+>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
 </bind_shape_matrix>
         <source id="ShoesController-Joints">
           <Name_array id="ShoesController-Joints-array" count="6">

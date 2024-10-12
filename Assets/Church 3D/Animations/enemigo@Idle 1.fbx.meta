@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7de6a69cd0fb44d41b801cebb77cd6ae
+=======
+<<<<<<<< HEAD:Assets/Church 3D/Animations/Peasant Girl@Idle.fbx.meta
+guid: a3994b4fbeacbd145b588e2c8d37fa78
+========
+guid: 6f30e33b978f9a44d91d15423ad7587d
+>>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72:Assets/Church 3D/Animations/enemigo@Idle 1.fbx.meta
+>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []

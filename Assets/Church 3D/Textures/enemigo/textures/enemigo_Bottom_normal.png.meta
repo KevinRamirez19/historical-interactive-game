@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7e78176910c0575478eaa11ebcd5bb77
+=======
+guid: f0df835149bb9c54c85f23e203681b60
+>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -7,7 +11,11 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+<<<<<<< HEAD
     sRGBTexture: 0
+=======
+    sRGBTexture: 1
+>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -54,7 +62,11 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
+<<<<<<< HEAD
   textureType: 1
+=======
+  textureType: 0
+>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
