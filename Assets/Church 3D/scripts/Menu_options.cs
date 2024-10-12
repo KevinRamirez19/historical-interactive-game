@@ -14,7 +14,7 @@ public class Menu_options : MonoBehaviour
     
     {
             Application.Quit();
-            Debug.Log("Adios:)");
+            Debug.Log("Adios :v");
     }
 
 }
