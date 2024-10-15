@@ -78,22 +78,15 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
-<<<<<<< HEAD:Assets/Church 3D/Animations/enemigo 1.fbx.meta
   - bdf307c94304cf84782dc75840446080
-  - 7de6a69cd0fb44d41b801cebb77cd6ae
+  - 6f30e33b978f9a44d91d15423ad7587d
   - 33a1229a012f8334fb43e6b5a7800aa9
   - d6878c7c2eab727408d5627d9018e7e2
   - 3329b81ff0ac34e418c0fb3ac39a5760
   - a94bbc73228836340b47604546ca7414
   - de89715729b280f46858c700c1b7f03d
-  - ebc05d454384d7a47af8593f6aa3d7f5
-=======
-  - 6f30e33b978f9a44d91d15423ad7587d
-  - 40803984cc4ad3a448da9dbf8809a946
-  - 5a2c6879369af7149aec625e6cd8bd11
   - a8cb35f2755f80f4dbaeaa0f02b4d685
   - 38a0fcf3400d5cf4aa8f0a5290a589fa
->>>>>>> 00a7cda3c9dd9b30b9a52d8685346588ded784b7:Assets/Kevin/Animations/enemigo 1.fbx.meta
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
