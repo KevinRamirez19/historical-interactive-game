@@ -13,11 +13,12 @@ public class Clues : MonoBehaviour
     public bool _inTrigger;
     public int _conversationSteps;
     public float _time = 0f;
-    public string _miTexto = "Hola :v "; 
+    public string _miTexto; 
 
     // Start is called before the first frame update
     void Start()
     {
+        _panelPressE.GetComponent<Transform>();
         _textPanelMision.text = _miTexto;
         _inTrigger = false;
         _conversationSteps = 0;

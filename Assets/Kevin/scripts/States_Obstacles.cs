@@ -14,7 +14,7 @@ public class States_Obstacles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
+         _animator = GetComponent<Animator>();
          _state = STATES.IDLE;  
     }
 
