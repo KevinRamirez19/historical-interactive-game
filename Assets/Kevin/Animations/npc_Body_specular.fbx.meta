@@ -1,18 +1,14 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: d6878c7c2eab727408d5627d9018e7e2
-=======
-guid: 40803984cc4ad3a448da9dbf8809a946
->>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
+guid: b6626f7c236335d48997be9295f645ad
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
-    materialName: 0
+    materialImportMode: 1
+    materialName: 3
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -36,7 +32,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -44,13 +40,13 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
-    importVisibility: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
-    nodeNameCollisionStrategy: 1
-    fileIdsGeneration: 2
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -63,25 +59,38 @@ ModelImporter:
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-    indexFormat: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
+    secondaryUVMarginMethod: 0
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+<<<<<<< HEAD:Assets/Church 3D/Animations/npc_Body_specular.fbx.meta
+  - a817bc8089839ec499f9525f95fbdb55
+  - 5eb268dbaf3220c46962c43a6e43f9a5
+  - aca1f69de351cbf4694891e7f3053c9a
+  - 1093fbc0b0b34ac45a8dc63e01b566cb
+  - f91323fa42bba954785efd6c0313e54c
+  - 5a1f3ce00d9993b4eb8d0152ed356742
+=======
+  - 483ff43c8e11cf4428feb62bccbfe7cc
+  - 37d43080863a5bd48a5ac63e2bcf8972
+  - d64bc0b54eed6be42b990b9f512fddc8
+>>>>>>> 00a7cda3c9dd9b30b9a52d8685346588ded784b7:Assets/Kevin/Animations/npc_Body_specular.fbx.meta
+  - 6267209fba92da644baef400d9a39dc5
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -101,12 +110,12 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

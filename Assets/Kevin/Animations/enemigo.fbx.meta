@@ -1,22 +1,14 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 7de6a69cd0fb44d41b801cebb77cd6ae
-=======
-<<<<<<<< HEAD:Assets/Church 3D/Animations/Peasant Girl@Idle.fbx.meta
-guid: a3994b4fbeacbd145b588e2c8d37fa78
-========
-guid: 6f30e33b978f9a44d91d15423ad7587d
->>>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72:Assets/Church 3D/Animations/enemigo@Idle 1.fbx.meta
->>>>>>> bea064a54b9c45b8e44fd77dacb99f5319260b72
+guid: 064296ab9dc072b42824f8a8ae76da65
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    materialImportMode: 2
-    materialName: 0
+    materialImportMode: 1
+    materialName: 3
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -40,7 +32,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -48,13 +40,13 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
-    importVisibility: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
-    nodeNameCollisionStrategy: 1
-    fileIdsGeneration: 2
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -67,25 +59,41 @@ ModelImporter:
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-    indexFormat: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
+    secondaryUVMarginMethod: 0
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+<<<<<<< HEAD:Assets/Church 3D/Animations/enemigo.fbx.meta
+  - bdf307c94304cf84782dc75840446080
+  - 7de6a69cd0fb44d41b801cebb77cd6ae
+  - 33a1229a012f8334fb43e6b5a7800aa9
+  - d6878c7c2eab727408d5627d9018e7e2
+  - 3329b81ff0ac34e418c0fb3ac39a5760
+  - a94bbc73228836340b47604546ca7414
+  - de89715729b280f46858c700c1b7f03d
+  - ebc05d454384d7a47af8593f6aa3d7f5
+=======
+  - 6f30e33b978f9a44d91d15423ad7587d
+  - 40803984cc4ad3a448da9dbf8809a946
+  - 5a2c6879369af7149aec625e6cd8bd11
+  - a8cb35f2755f80f4dbaeaa0f02b4d685
+  - 38a0fcf3400d5cf4aa8f0a5290a589fa
+>>>>>>> 00a7cda3c9dd9b30b9a52d8685346588ded784b7:Assets/Kevin/Animations/enemigo.fbx.meta
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -105,12 +113,12 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
