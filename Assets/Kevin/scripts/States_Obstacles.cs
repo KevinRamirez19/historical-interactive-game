@@ -8,13 +8,13 @@ public enum STATES{
 }
 public class States_Obstacles : MonoBehaviour
 {
-    public Animator animator;
+    public Animator _animator;
     private STATES _state;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
          _state = STATES.IDLE;  
     }
 
@@ -23,12 +23,12 @@ public class States_Obstacles : MonoBehaviour
     {
        if(Input.GetKeyDown(KeyCode.H))
        {
-        animator.SetBool("Caminando", true);
+        _animator.SetBool("Caminando", true);
 
        }
        if(Input.GetKeyUp(KeyCode.H))
        {
-        animator.SetBool("Caminando", false);
+        _animator.SetBool("Caminando", false);
        }
           
         
