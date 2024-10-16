@@ -78,18 +78,12 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
-<<<<<<< HEAD:Assets/Church 3D/Animations/npc_Body_specular.fbx.meta
   - a817bc8089839ec499f9525f95fbdb55
   - 5eb268dbaf3220c46962c43a6e43f9a5
   - aca1f69de351cbf4694891e7f3053c9a
   - 1093fbc0b0b34ac45a8dc63e01b566cb
   - f91323fa42bba954785efd6c0313e54c
   - 5a1f3ce00d9993b4eb8d0152ed356742
-=======
-  - 483ff43c8e11cf4428feb62bccbfe7cc
-  - 37d43080863a5bd48a5ac63e2bcf8972
-  - d64bc0b54eed6be42b990b9f512fddc8
->>>>>>> 00a7cda3c9dd9b30b9a52d8685346588ded784b7:Assets/Kevin/Animations/npc_Body_specular.fbx.meta
   - 6267209fba92da644baef400d9a39dc5
   importAnimation: 1
   humanDescription:
@@ -110,12 +104,12 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  importBlendShapeDeformPercent: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
