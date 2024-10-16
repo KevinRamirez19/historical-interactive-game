@@ -207,12 +207,12 @@ MonoBehaviour:
   animator: {fileID: 8647081967516217402}
   maxHealth: 100
   healthBar: {fileID: 0}
-  jumpForce: 5
-  groundCheck: {fileID: 3377901930742327872}
+  jumpForce: 250
+  groundCheck: {fileID: 0}
   groundDistance: 0.2
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   rb: {fileID: 8406543417307704262}
 --- !u!54 &8406543417307704262
 Rigidbody:
@@ -222,7 +222,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2714376742825423098}
   serializedVersion: 4
-  m_Mass: 100
+  m_Mass: 60
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
