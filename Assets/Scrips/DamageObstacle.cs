@@ -6,16 +6,16 @@ public class DamageObstacle : MonoBehaviour
 {
     public int damageAmount = 5; // Cantidad de daño que inflige el obstáculo cada 3 segundos
     private bool playerInContact = false; // Para saber si el jugador está en contacto con el obstáculo
-    private PlayerMove player; // Referencia al script del jugador
+    private Player_Move player; // Referencia al script del jugador
     private Coroutine damageCoroutine; // Para controlar la corutina de daño
 
     // Detecta cuando el jugador entra en el Trigger del obstáculo
     void OnTriggerEnter(Collider other)
     {
         // Verifica si el objeto que entra es el jugador
-        if (other.CompareTag("Projecto"))
+        if (other.CompareTag("Player"))
         {
-            player = other.GetComponent<PlayerMove>();
+            player = other.GetComponent<Player_Move>();
             if (player != null)
             {
                 playerInContact = true;
@@ -28,7 +28,7 @@ public class DamageObstacle : MonoBehaviour
     // Detecta cuando el jugador sale del Trigger del obstáculo
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Projecto") && playerInContact)
+        if (other.CompareTag("Player") && playerInContact)
         {
             playerInContact = false;
             // Detenemos la corutina cuando el jugador sale del obstáculo

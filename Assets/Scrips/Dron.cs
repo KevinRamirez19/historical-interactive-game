@@ -12,16 +12,16 @@ public class Dron : MonoBehaviour
     public float attackCooldown = 2f; // Tiempo de espera entre ataques
     private bool canAttack = true; // Controla si el dron puede atacar o no
 
-    private PlayerMove playerMove; // Referencia al script del jugador
+    private Player_Move playerMove; // Referencia al script del jugador
 
     void Start()
     {
         // Encuentra al jugador usando su tag
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Projecto");
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
         {
             player = playerObject.transform;
-            playerMove = playerObject.GetComponent<PlayerMove>(); // Referencia al script del jugador
+            playerMove = playerObject.GetComponent<Player_Move>(); // Referencia al script del jugador
         }
     }
 
