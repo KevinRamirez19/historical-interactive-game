@@ -122,6 +122,103 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &109838728
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3979910512711243432, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979910512711243432, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491727663344157594, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 422451278}
+    - target: {fileID: 6491727663344157594, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491727663344157594, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491727663344157594, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: detectionRadius
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430362906369434881, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_Name
+      value: Remy@Breathing Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8430362906369434881, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_TagString
+      value: Projecto
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6162001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6162001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6162001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 441.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 36.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 501.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202396417903558587, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 027d5d0562baf6b4fae0bea04f419acb, type: 3}
 --- !u!114 &217621704 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1999632611504523109, guid: 74ac11b3895662245a23891a8242aeea, type: 3}
@@ -133,6 +230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &422451278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2714376742825423098, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
+  m_PrefabInstance: {fileID: 812749765}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619618284
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,15 +472,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6055646
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.6055646
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.6055646
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -715,6 +817,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3230961589043930333, guid: 74ac11b3895662245a23891a8242aeea, type: 3}
+      propertyPath: m_Name
+      value: "\xA1Busca la bandera!"
+      objectReference: {fileID: 0}
     - target: {fileID: 3366030849188181908, guid: 74ac11b3895662245a23891a8242aeea, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -726,6 +832,14 @@ PrefabInstance:
     - target: {fileID: 3366030849188181908, guid: 74ac11b3895662245a23891a8242aeea, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.19999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575271014181880073, guid: 74ac11b3895662245a23891a8242aeea, type: 3}
+      propertyPath: m_text
+      value: "\xA1Busca la bandera!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901054477411670802, guid: 74ac11b3895662245a23891a8242aeea, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 166
       objectReference: {fileID: 0}
     - target: {fileID: 7168267374320597053, guid: 74ac11b3895662245a23891a8242aeea, type: 3}
       propertyPath: m_Pivot.x
@@ -1520,3 +1634,4 @@ SceneRoots:
   - {fileID: 1841505060}
   - {fileID: 812749765}
   - {fileID: 1204859837}
+  - {fileID: 109838728}
