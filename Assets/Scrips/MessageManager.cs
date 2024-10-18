@@ -15,7 +15,7 @@ public class MessageManager : MonoBehaviour
     {
         messageText.text = message; // Cambia el texto
         messageText.gameObject.SetActive(true); // Muestra el texto
-        Invoke("HideMessage", 6f); // Oculta el texto después de 3 segundos
+        Invoke("HideMessage", 6f); // Oculta el texto después de 6 segundos
     }
 
     private void HideMessage()
