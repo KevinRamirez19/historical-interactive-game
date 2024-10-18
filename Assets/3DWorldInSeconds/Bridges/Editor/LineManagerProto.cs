@@ -416,7 +416,7 @@ namespace WorldInSeconds3DProto
                     Vector3 pos = pointsList[i];
                     float handleSize = HandleUtility.GetHandleSize(pos);
                     if (currentAction == CurrentAction.MoveAction) currentIndexForMove = i;
-                    Vector3 newPos = Handles.FreeMoveHandle(pos, Quaternion.identity, handleSize * 2, Vector3.one, HandleFunction);
+                    var fmh_419_66_638647960202679557 = Quaternion.identity; Vector3 newPos = Handles.FreeMoveHandle(pos, handleSize * 2, Vector3.one, HandleFunction);
 
                     if (newPos != pos && currentAction != CurrentAction.Navigate && currentAction != CurrentAction.DeleteAction)
                     {
