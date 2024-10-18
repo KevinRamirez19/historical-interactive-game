@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickupPoint : MonoBehaviour
 {
+    public int currentPickupIndex; // Índice del punto de recogida
     private MissionManager missionManager;
 
     private void Start()
@@ -17,9 +18,12 @@ public class PickupPoint : MonoBehaviour
         // Verifica si el objeto que colisiona es el jugador
         if (other.CompareTag("Player"))
         {
-            // Llama al método para manejar la recogida de mensajes en el MissionManager
-            missionManager.OnMessagePickedUp();
-            Destroy(gameObject); // Opcional: Destruye el punto de recogida
+            if (missionManager != null && missionManager.CanPickup(currentPickupIndex)) // Verifica si el índice de recogida es válido
+            {
+                // Llama al método para manejar la recogida de mensajes en el MissionManager
+                missionManager.OnMessagePickedUp();
+                Destroy(gameObject); // Opcional: Destruye el punto de recogida
+            }
         }
     }
 }
