@@ -38,7 +38,7 @@ public class Player_Move : MonoBehaviour
         currentHealth = maxHealth;
 
         // Inicializamos la barra de vida
-         healthBar.maxValue = maxHealth;
+        healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
     }
 
