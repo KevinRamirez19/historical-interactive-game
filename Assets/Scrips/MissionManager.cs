@@ -58,11 +58,11 @@ public class MissionManager : MonoBehaviour
 
     public void OnMessagePickedUp()
     {
-        // Al recoger el mensaje, avanzar al siguiente punto de entrega
         ShowMessage("Mensaje recogido en: " + pickupPoints[currentPickupIndex].name);
         DeactivatePickupPoint(currentPickupIndex);
         currentPickupIndex++;
 
+        // Si no es el último mensaje, continúa con los siguientes puntos de entrega
         if (currentPickupIndex < pickupPoints.Length)
         {
             ActivateDeliveryPoint(currentDeliveryIndex);
@@ -70,18 +70,23 @@ public class MissionManager : MonoBehaviour
         }
         else
         {
-            // Última entrega
-            ShowMessage("Todos los mensajes recogidos. Llevar documento final a " + deliveryPoints[currentDeliveryIndex].name);
+            // Cuando todos los mensajes han sido recogidos, activa el punto de entrega final
+            if (currentDeliveryIndex < deliveryPoints.Length)
+            {
+                ActivateDeliveryPoint(currentDeliveryIndex); // Activa el último punto de entrega
+                ShowMessage("Todos los mensajes recogidos. Llevar documento final a " + deliveryPoints[currentDeliveryIndex].name);
+            }
         }
     }
 
+
     public void OnMessageDelivered()
     {
-        // Al entregar el mensaje, avanzar al siguiente punto de recogida
         ShowMessage("Mensaje entregado en: " + deliveryPoints[currentDeliveryIndex].name);
         DeactivateDeliveryPoint(currentDeliveryIndex);
         currentDeliveryIndex++;
 
+        // Verificar si aún quedan más puntos de entrega
         if (currentDeliveryIndex < deliveryPoints.Length)
         {
             ActivatePickupPoint(currentPickupIndex);
@@ -89,10 +94,12 @@ public class MissionManager : MonoBehaviour
         }
         else
         {
+            // Si llegamos aquí, la última entrega ha sido completada
             ShowMessage("Todas las entregas completadas. Misión finalizada.");
             ShowFinalMessage(); // Muestra mensaje de fin del juego
         }
     }
+
 
     public void Restart()
     {
