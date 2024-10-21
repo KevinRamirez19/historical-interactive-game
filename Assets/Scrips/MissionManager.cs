@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI; // Necesario para manejar la UI
 
 public class MissionManager : MonoBehaviour
 {
@@ -8,10 +12,16 @@ public class MissionManager : MonoBehaviour
     private int currentDeliveryIndex = 0; // Índice del punto de entrega actual
 
     public MessageManager messageManager; // Referencia al MessageManager
+    public TMP_Text puntajeTexto; // Referencia al componente UI Text para mostrar el puntaje
+
+    private int puntajeTotal = 0; // Puntaje total del jugador
+    public int puntajePorRecolecta = 20; // Puntaje por recoger un mensaje
+    public int puntajePorEntrega = 50; // Puntaje por entregar un mensaje
 
     void Start()
     {
         InitializeMission(); // Inicializa la misión
+        ActualizarPuntajeUI(); // Inicializa la UI de puntaje
     }
 
     private void InitializeMission()
@@ -62,6 +72,10 @@ public class MissionManager : MonoBehaviour
         DeactivatePickupPoint(currentPickupIndex);
         currentPickupIndex++;
 
+        // Añadir puntaje por recoger
+        puntajeTotal += puntajePorRecolecta;
+        ActualizarPuntajeUI();
+
         // Si no es el último mensaje, continúa con los siguientes puntos de entrega
         if (currentPickupIndex < pickupPoints.Length)
         {
@@ -79,12 +93,15 @@ public class MissionManager : MonoBehaviour
         }
     }
 
-
     public void OnMessageDelivered()
     {
         ShowMessage("Mensaje entregado en: " + deliveryPoints[currentDeliveryIndex].name);
         DeactivateDeliveryPoint(currentDeliveryIndex);
         currentDeliveryIndex++;
+
+        // Añadir puntaje por entregar
+        puntajeTotal += puntajePorEntrega;
+        ActualizarPuntajeUI();
 
         // Verificar si aún quedan más puntos de entrega
         if (currentDeliveryIndex < deliveryPoints.Length)
@@ -99,7 +116,6 @@ public class MissionManager : MonoBehaviour
             ShowFinalMessage(); // Muestra mensaje de fin del juego
         }
     }
-
 
     public void Restart()
     {
@@ -154,6 +170,15 @@ public class MissionManager : MonoBehaviour
         else
         {
             Debug.LogWarning("MessageManager no está asignado en MissionManager.");
+        }
+    }
+
+    // Método para actualizar el puntaje en la UI
+    private void ActualizarPuntajeUI()
+    {
+        if (puntajeTexto != null)
+        {
+            puntajeTexto.text = "Puntaje: " + puntajeTotal.ToString();
         }
     }
 }
