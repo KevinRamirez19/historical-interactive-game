@@ -6,44 +6,38 @@ public class AtaqueEnemigo : MonoBehaviour
 {
     public GameObject player; // Referencia al jugador
     public float moveSpeed = 3f; // Velocidad de movimiento del enemigo
-    public int damageAmount = 5; // Cantidad de daño que inflige el enemigo (cambiado a 5)
+    public int damageAmount = 5; // Cantidad de daño que inflige el enemigo
 
-    public Transform detectionZone; // Zona de detección
     public float attackRange = 1.5f; // Rango de ataque
+    public float detectionRadius = 10f; // Radio de la zona de detección
 
+    private Vector3 initialPosition; // Posición inicial del enemigo
     private bool isPlayerInRange = false;
-    private bool isAttacking = false; // Para controlar si ya está atacando
+    private bool isAttacking = false; // Controla si el enemigo está atacando
+    private bool isReturning = false; // Controla si el enemigo está regresando a su posición
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        // Verifica si el objeto que entró en el campo de detección es el jugador
-        if (other.gameObject == player)
-        {
-            isPlayerInRange = true; // El jugador ha entrado en la zona de detección
-            if (!isAttacking)
-            {
-                StartCoroutine(AttackPlayer()); // Comienza a atacar si no está atacando ya
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        // Verifica si el objeto que salió del campo de detección es el jugador
-        if (other.gameObject == player)
-        {
-            isPlayerInRange = false; // El jugador ha salido de la zona de detección
-            StopCoroutine(AttackPlayer()); // Detiene el ataque cuando el jugador sale
-            isAttacking = false; // Reinicia el estado de ataque
-        }
+        initialPosition = transform.position; // Guarda la posición inicial del enemigo
     }
 
     void Update()
     {
-        // Si el jugador está dentro de la zona de detección, el enemigo lo persigue
-        if (isPlayerInRange)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        // Verifica si el jugador está dentro del radio de detección
+        if (distanceToPlayer <= detectionRadius)
         {
-            MoveTowardsPlayer();
+            isPlayerInRange = true;
+            MoveTowardsPlayer(); // Persigue al jugador
+        }
+        else
+        {
+            isPlayerInRange = false;
+            if (!isReturning)
+            {
+                StartCoroutine(ReturnToInitialPosition()); // Vuelve a la posición inicial
+            }
         }
     }
 
@@ -51,12 +45,28 @@ public class AtaqueEnemigo : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        // Mover al enemigo hacia el jugador si está fuera del rango de ataque
+        // Moverse hacia el jugador si está fuera del rango de ataque
         if (distanceToPlayer > attackRange)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
+        else if (!isAttacking)
+        {
+            StartCoroutine(AttackPlayer()); // Comienza el ataque si está dentro del rango de ataque
+        }
+    }
+
+    IEnumerator ReturnToInitialPosition()
+    {
+        isReturning = true; // Comienza el retorno
+        while (Vector3.Distance(transform.position, initialPosition) > 0.1f) // Mientras no esté cerca de la posición inicial
+        {
+            Vector3 direction = (initialPosition - transform.position).normalized; // Dirección hacia la posición inicial
+            transform.position += direction * moveSpeed * Time.deltaTime; // Mueve al enemigo hacia su posición inicial
+            yield return null; // Espera un frame
+        }
+        isReturning = false; // Ha regresado a la posición inicial
     }
 
     IEnumerator AttackPlayer()
@@ -65,22 +75,31 @@ public class AtaqueEnemigo : MonoBehaviour
 
         while (isPlayerInRange) // Mientras el jugador esté en la zona de detección
         {
-            // Comprobar si el jugador está dentro del rango de ataque
             float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            // Comprobar si el jugador está dentro del rango de ataque
             if (distanceToPlayer <= attackRange)
             {
                 // Inflige daño al jugador
-                PlayerMove playerMove = player.GetComponent<PlayerMove>();
+                Player_Move playerMove = player.GetComponent<Player_Move>();
                 if (playerMove != null)
                 {
-                    playerMove.TakeDamage(damageAmount);
+                    Debug.Log("Atacando al jugador, infligiendo daño.");
+                    playerMove.TakeDamage(damageAmount); // Aplica daño
                 }
             }
 
-            // Espera 3 segundos antes de volver a atacar
-            yield return new WaitForSeconds(3f);
+            // Espera 1 segundo antes de volver a atacar
+            yield return new WaitForSeconds(1f);
         }
 
         isAttacking = false;
+    }
+
+    void OnDrawGizmos()
+    {
+        // Dibuja el radio de detección en la escena para depuración
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
