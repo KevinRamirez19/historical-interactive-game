@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // Necesario para la barra de vida
+using UnityEngine.UI;
 
 public class Player_Move : MonoBehaviour
 {
@@ -12,26 +10,27 @@ public class Player_Move : MonoBehaviour
     private float x, y;
 
     // Variables para la vida del personaje
-    public int maxHealth = 100; // Vida máxima del personaje
-    private int currentHealth; // Vida actual del personaje
+    public int maxHealth = 100;
+    private int currentHealth;
 
-    // Barra de vida (debe conectarse en el Inspector)
+    // Barra de vida
     public Slider healthBar;
 
     // Variables para el salto
-    public float jumpForce = 5f; // Fuerza del salto
-    public Transform groundCheck; // Transform para comprobar si está en el suelo
-    public float groundDistance = 0.2f; // Distancia desde el personaje al suelo
-    public LayerMask groundMask; // Capa que identifica el suelo
-    private bool isGrounded; // Si el personaje está en el suelo
-    public Rigidbody rb; // Rigidbody del personaje
+    public float jumpForce = 5f;
+    public Transform groundCheck;
+    public float groundDistance = 0.2f;
+    public LayerMask groundMask;
+    private bool isGrounded;
+    private bool isJumping = false;
+    public Rigidbody rb;
+
+    // Velocidad mínima para considerar que el jugador está cayendo
+    public float fallSpeedThreshold = 0.1f;
 
     void Start()
     {
-        // Inicializamos la vida del personaje
         currentHealth = maxHealth;
-
-        // Inicializamos la barra de vida
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
     }
@@ -50,17 +49,24 @@ public class Player_Move : MonoBehaviour
         // Comprobar si el personaje está en el suelo
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        // Saltar cuando se presiona la barra espaciadora
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        // Si está en el suelo y la velocidad vertical es baja, el jugador puede saltar de nuevo
+        if (isGrounded && Mathf.Abs(rb.velocity.y) < fallSpeedThreshold)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Aplicar la fuerza del salto
-            animator.SetTrigger("Jump"); // Reproducir animación de salto (si existe)
+            isJumping = false; // Reiniciar el estado de salto cuando toca el suelo
         }
 
-        // Simulamos que el personaje recibe daño (presionando la tecla H)
+        // Saltar cuando se presiona la barra espaciadora y el personaje está en el suelo
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isJumping)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetTrigger("Jump");
+            isJumping = true; // Marcar que el jugador ha saltado
+        }
+
+        // Simulación de daño
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(10); // Recibe 10 de daño
+            TakeDamage(10);
         }
     }
 
@@ -68,13 +74,11 @@ public class Player_Move : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
-        // Actualizar la barra de vida
         healthBar.value = currentHealth;
 
         if (currentHealth <= 0)
         {
-            Die(); // Si la vida llega a 0, el personaje muere
+            Die();
         }
     }
 
@@ -82,6 +86,5 @@ public class Player_Move : MonoBehaviour
     void Die()
     {
         Debug.Log("El personaje ha muerto");
-        // Aquí puedes añadir lógica adicional como reiniciar el nivel, etc.
     }
 }
