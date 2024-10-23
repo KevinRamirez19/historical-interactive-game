@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI; // Necesario para la barra de vida
 
@@ -10,6 +12,8 @@ public class Player_Move : MonoBehaviour
     public Animator animator;
 
     private float x, y;
+
+    public float fuerzaDeSalto = 8f;
 
     // Variables para la vida del personaje
     public int maxHealth = 100; // Vida máxima del personaje
@@ -28,6 +32,8 @@ public class Player_Move : MonoBehaviour
 
     void Start()
     {
+        
+        
         // Inicializamos la vida del personaje
         currentHealth = maxHealth;
 
@@ -44,6 +50,7 @@ public class Player_Move : MonoBehaviour
 
         transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
         transform.Translate(0, 0, y * Time.deltaTime * runSpeed);
+        
         animator.SetFloat("Velx", x);
         animator.SetFloat("VelY", y);
 
@@ -53,8 +60,7 @@ public class Player_Move : MonoBehaviour
         // Saltar cuando se presiona la barra espaciadora
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Aplicar la fuerza del salto
-            animator.SetTrigger("Jump"); // Reproducir animación de salto (si existe)
+            
         }
 
         // Simulamos que el personaje recibe daño (presionando la tecla H)
@@ -83,5 +89,7 @@ public class Player_Move : MonoBehaviour
     {
         Debug.Log("El personaje ha muerto");
         // Aquí puedes añadir lógica adicional como reiniciar el nivel, etc.
+        
     }
+    
 }
