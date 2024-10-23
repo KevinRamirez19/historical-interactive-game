@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Artifact : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public MissionBB missionBB;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            // Al recoger el artefacto, notificar al MissionManager
+            missionBB.ArtifactCollected();
+            Destroy(gameObject); // Elimina el artefacto del juego
+        }
     }
 }

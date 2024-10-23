@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DeliveryZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public MissionBB missionBB;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            // Aquí puedes agregar lógica para finalizar la misión
+            if (missionBB != null)
+            {
+                missionBB.CompleteMission();
+                // Puedes agregar más lógica, como cargar una nueva escena o mostrar un mensaje
+            }
+        }
     }
 }
