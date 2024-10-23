@@ -52,10 +52,13 @@ public class Clues : MonoBehaviour
     }
     private void OnTriggerEnter(Collider _other)
     {
+        
         if (_other.CompareTag("Player"))
         {
+            Debug.Log("Hola");
             _panelPressE.SetActive(true);
             _inTrigger = true;
+        
 
 
         }
