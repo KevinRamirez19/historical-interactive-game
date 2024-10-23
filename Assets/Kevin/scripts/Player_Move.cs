@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -99,5 +100,9 @@ public class Player_Move : MonoBehaviour
         // Aquí puedes añadir lógica adicional como reiniciar el nivel, etc.
         
     }
-    
+
+    internal void TakeDamage(float daño)
+    {
+        throw new NotImplementedException();
+    }
 }
