@@ -1,3 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +12,8 @@ public class Player_Move : MonoBehaviour
     public Animator animator;
 
     private float x, y;
+
+    public float fuerzaDeSalto = 8f;
 
     // Variables para la vida del personaje
     public int maxHealth = 100;
@@ -30,6 +36,9 @@ public class Player_Move : MonoBehaviour
 
     void Start()
     {
+        
+        
+        // Inicializamos la vida del personaje
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
@@ -43,6 +52,7 @@ public class Player_Move : MonoBehaviour
 
         transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
         transform.Translate(0, 0, y * Time.deltaTime * runSpeed);
+        
         animator.SetFloat("Velx", x);
         animator.SetFloat("VelY", y);
 
@@ -52,13 +62,13 @@ public class Player_Move : MonoBehaviour
         // Si está en el suelo y la velocidad vertical es baja, el jugador puede saltar de nuevo
         if (isGrounded && Mathf.Abs(rb.velocity.y) < fallSpeedThreshold)
         {
-            isJumping = false; // Reiniciar el estado de salto cuando toca el suelo
+            
         }
 
         // Saltar cuando se presiona la barra espaciadora y el personaje está en el suelo
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isJumping)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            
             animator.SetTrigger("Jump");
             isJumping = true; // Marcar que el jugador ha saltado
         }
@@ -86,5 +96,8 @@ public class Player_Move : MonoBehaviour
     void Die()
     {
         Debug.Log("El personaje ha muerto");
+        // Aquí puedes añadir lógica adicional como reiniciar el nivel, etc.
+        
     }
+    
 }
