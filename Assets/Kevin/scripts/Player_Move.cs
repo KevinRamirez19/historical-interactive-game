@@ -34,6 +34,12 @@ public class Player_Move : MonoBehaviour
     // Velocidad mínima para considerar que el jugador está cayendo
     public float fallSpeedThreshold = 0.1f;
 
+    //Ataque 
+    public bool IsAtack;
+    public bool IsMove;
+    public float puchForce = 10f; 
+
+
     void Start()
     {
         
@@ -44,14 +50,31 @@ public class Player_Move : MonoBehaviour
         healthBar.value = currentHealth;
     }
 
+    private void FixedUpdate()
+    {
+        if (!IsAtack)
+        {
+            transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
+            transform.Translate(0, 0, y * Time.deltaTime * runSpeed);
+        }
+
+        if (IsMove)
+        {
+            rb.velocity = transform.forward * puchForce;
+        }
+    }
+
     void Update()
     {
         // Movimiento del personaje
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 
-        transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
-        transform.Translate(0, 0, y * Time.deltaTime * runSpeed);
+        if (Input.GetKeyDown(KeyCode.Return) && isGrounded && !IsAtack)
+        {
+            animator.SetTrigger("Puch");
+            IsAtack = true;
+        }
         
         animator.SetFloat("Velx", x);
         animator.SetFloat("VelY", y);
@@ -65,13 +88,17 @@ public class Player_Move : MonoBehaviour
             
         }
 
-        // Saltar cuando se presiona la barra espaciadora y el personaje está en el suelo
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isJumping)
+        if (!IsAtack)
         {
-            
-            animator.SetTrigger("Jump");
-            isJumping = true; // Marcar que el jugador ha saltado
+            // Saltar cuando se presiona la barra espaciadora y el personaje está en el suelo
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isJumping)
+            {
+
+                animator.SetTrigger("Jump");
+                isJumping = true; // Marcar que el jugador ha saltado
+            }
         }
+
 
         // Simulación de daño
         if (Input.GetKeyDown(KeyCode.H))
@@ -100,4 +127,18 @@ public class Player_Move : MonoBehaviour
         
     }
     
+    public void StopPuch()
+    {
+        IsAtack = false;
+    }
+
+    public void MoveAlone()
+    {
+        IsMove = true;
+    }
+
+    public void StopMove()
+    {
+        IsMove = false; 
+    }
 }
