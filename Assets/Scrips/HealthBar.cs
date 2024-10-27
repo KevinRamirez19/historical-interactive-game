@@ -8,6 +8,9 @@ public class HealthBar : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
     public Slider healthBar;
+
+    [SerializeField] private float cantidadPuntos;
+    [SerializeField] private Puntaje puntaje;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +42,8 @@ public class HealthBar : MonoBehaviour
     // Método que simula la muerte del personaje
     void Die()
     {
-        gameObject.SetActive(false);
+        puntaje.sumarPuntos(cantidadPuntos); 
+        Destroy(gameObject);
         Debug.Log("El enemigo ha muerto");
     }
 }

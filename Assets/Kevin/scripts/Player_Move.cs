@@ -171,7 +171,8 @@ public class Player_Move : MonoBehaviour
     // Método que simula la muerte del personaje
     void Die()
     {
-        Debug.Log("El personaje ha muerto");
+        FindAnyObjectByType<GameOver>().MostrarGameOver(); 
+        //Debug.Log("El personaje ha muerto");
     }
 
     public void StopPuch()
