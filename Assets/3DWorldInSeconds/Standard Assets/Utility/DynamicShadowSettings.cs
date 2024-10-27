@@ -19,10 +19,7 @@ namespace UnityStandardAssets.Utility
         private float m_OriginalStrength = 1;
 
 
-        private void Start()
-        {
-            m_OriginalStrength = sunLight.shadowStrength;
-        }
+        private void Start() => m_OriginalStrength = sunLight.shadowStrength;
 
 
         // Update is called once per frame

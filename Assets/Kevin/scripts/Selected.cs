@@ -13,7 +13,7 @@ public class Selected : MonoBehaviour
         {
             if (hit.collider.tag == "Door")
             {
-                 if (Input.GetKeyDown(KeyCode.I))
+                 if (Input.GetKeyDown(KeyCode.O))
                 {
                  hit.collider.transform.GetComponent<SystemDoor>().ChangeDoorState();   
                 }
