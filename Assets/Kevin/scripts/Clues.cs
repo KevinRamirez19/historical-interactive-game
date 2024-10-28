@@ -14,6 +14,7 @@ public class Clues : MonoBehaviour
     public int _conversationSteps;
     public float _time = 0f;
     public string _miTexto; 
+    public Positions? _positions;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class Clues : MonoBehaviour
         _textPanelMision.text = _miTexto;
         _inTrigger = false;
         _conversationSteps = 0;
-        
+        _positions = GameObject.Find("People_Obstacles")?.GetComponent<Positions>()?? null;        
     }
 
     // Update is called once per frame
@@ -47,6 +48,10 @@ public class Clues : MonoBehaviour
                 _panelMision.SetActive(false);
                 _panelPressE.SetActive(true);
                 _time = 0f;
+                if (_positions)
+                {
+                _positions._animator.SetBool("Block", true);
+                }
             }
         }
     }

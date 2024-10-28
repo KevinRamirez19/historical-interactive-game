@@ -7,6 +7,7 @@ TagManager:
   - Projecto
   - Door
   - TriggerDoor
+  - LibroBogotazo
   layers:
   - Default
   - TransparentFX

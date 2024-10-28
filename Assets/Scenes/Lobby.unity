@@ -7915,7 +7915,7 @@ GameObject:
   - component: {fileID: 200209281}
   - component: {fileID: 200209280}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Bloqueo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18623,7 +18623,7 @@ GameObject:
   - component: {fileID: 507695941}
   - component: {fileID: 507695940}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Bloqueo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26260,6 +26260,7 @@ MonoBehaviour:
   _miTexto: "\xA1Oye, t\xFA! Necesito tu ayuda urgentemente. Ha ocurrido algo terrible...
     \xA1Unos ladrones han irrumpido en el museo anoche y se han llevado algunas de
     nuestras piezas m\xE1s valiosas!"
+  _positions: {fileID: 0}
 --- !u!136 &722913579
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -29745,6 +29746,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7648a85b92a434c4cbe8e7875a826a78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 811648498}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7648a85b92a434c4cbe8e7875a826a78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811648499}
   m_SourcePrefab: {fileID: 100100000, guid: 7648a85b92a434c4cbe8e7875a826a78, type: 3}
 --- !u!1 &811648492 stripped
 GameObject:
@@ -29837,6 +29841,23 @@ MonoBehaviour:
     m_Bits: 0
   rb: {fileID: 811648493}
   fallSpeedThreshold: 0.1
+--- !u!114 &811648499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811648492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7991a1f4a7bd4b347af7f61c1f9b441b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firstScene: 0
+  _secondScene: 0
+  _block1: {fileID: 0}
+  _block2: {fileID: 0}
+  _book: {fileID: 0}
 --- !u!4 &813596315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8413698842034477711, guid: 94582700e183f6a4d96f3a992242cf0e, type: 3}
@@ -59376,7 +59397,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 888ce82c0af2ab0499d39c93fb0f4ce4, type: 3}
       propertyPath: m_Name
-      value: book_0001c
+      value: LibroBogotazo
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 888ce82c0af2ab0499d39c93fb0f4ce4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 888ce82c0af2ab0499d39c93fb0f4ce4, type: 3}
+      propertyPath: m_TagString
+      value: LibroBogotazo
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 888ce82c0af2ab0499d39c93fb0f4ce4, type: 3}
       propertyPath: m_LocalScale.x
