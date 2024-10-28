@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projecto
-  - Door
-  - TriggerDoor
+  - Objetivo
+  - Enemigo
   layers:
   - Default
   - TransparentFX
@@ -14,7 +14,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - MiniMap
   - 
   - 
   - 

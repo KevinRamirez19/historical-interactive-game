@@ -29,9 +29,14 @@ public class PlayerHealth : MonoBehaviour
 
     private void RestartMission()
     {
+        // Asegúrate de que el MissionManager no sea nulo antes de llamar a Restart
         if (missionManager != null)
         {
             missionManager.Restart(); // Llama al método de reinicio en MissionManager
+        }
+        else
+        {
+            Debug.LogWarning("MissionManager no está asignado en PlayerHealth.");
         }
     }
 }

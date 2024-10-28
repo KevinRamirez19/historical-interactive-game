@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dron : MonoBehaviour
 {
-    public Transform player; // Referencia al jugador
+    public Transform player; // Referencia al jugador 
     public float detectionRange = 10f; // Rango de detección para empezar a perseguir al jugador
     public float moveSpeed = 2f; // Velocidad del dron
     public float damageAmount = 5f; // Daño que hace el dron al jugador cuando lo alcanza
