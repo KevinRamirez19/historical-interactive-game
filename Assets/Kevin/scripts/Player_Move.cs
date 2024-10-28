@@ -171,9 +171,19 @@ public class Player_Move : MonoBehaviour
     // Método que simula la muerte del personaje
     void Die()
     {
-        FindAnyObjectByType<GameOver>().MostrarGameOver(); 
-        //Debug.Log("El personaje ha muerto");
+        // Busca el objeto que contiene el script con el método MostrarGameOver.
+        GameOver gameOverManager = FindAnyObjectByType<GameOver>();
+
+        if (gameOverManager != null)
+        {
+            gameOverManager.MostrarGameOver(); // Llama al método MostrarGameOver.
+        }
+        else
+        {
+            Debug.LogError("No se encontró el GameOverManager en la escena.");
+        }
     }
+
 
     public void StopPuch()
     {
