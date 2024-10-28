@@ -29854,14 +29854,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 811648492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7991a1f4a7bd4b347af7f61c1f9b441b, type: 3}
+  m_Script: {fileID: 11500000, guid: 260aa09ede00fad468b4b84d70fc6458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _firstScene: 0
   _secondScene: 0
-  _block1: {fileID: 0}
-  _block2: {fileID: 0}
-  _book: {fileID: 0}
+  _block1: {fileID: 507695939}
+  _block2: {fileID: 200209279}
+  _book: {fileID: 1714676859}
 --- !u!4 &813596315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8413698842034477711, guid: 94582700e183f6a4d96f3a992242cf0e, type: 3}
