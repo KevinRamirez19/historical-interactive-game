@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class Player_Move : MonoBehaviour
 {
@@ -12,8 +9,6 @@ public class Player_Move : MonoBehaviour
     public Animator animator;
 
     private float x, y;
-
-    public float fuerzaDeSalto = 8f;
 
     // Variables para la vida del personaje
     public int maxHealth = 100;
@@ -34,14 +29,52 @@ public class Player_Move : MonoBehaviour
     // Velocidad mínima para considerar que el jugador está cayendo
     public float fallSpeedThreshold = 0.1f;
 
+    //Ataque del personaje 
+    public bool isAtack;
+    public bool moveAlone;
+    public float impulseAtack = 10f;
+
+    private GameObject enemigoActual;  // Guardar el enemigo con el que colisiona
+
+    public float detectionRange = 2f;
+    public float damageDelay = 1f;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemigo")) // Verifica que es el enemigo
+        {
+            enemigoActual = other.gameObject; // Guardar referencia del enemigo
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemigo"))
+        {
+            enemigoActual = null; // El jugador ya no está en contacto con el enemigo
+        }
+    }
+
     void Start()
     {
-        
-        
-        // Inicializamos la vida del personaje
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isAtack)
+        {
+            transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
+            transform.Translate(0, 0, y * Time.deltaTime * runSpeed);
+        }
+
+
+        if (moveAlone)
+        {
+            rb.velocity = transform.forward * impulseAtack; 
+        }
     }
 
     void Update()
@@ -50,9 +83,18 @@ public class Player_Move : MonoBehaviour
         x = Input.GetAxis("Horizontal");
         y = Input.GetAxis("Vertical");
 
-        transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
-        transform.Translate(0, 0, y * Time.deltaTime * runSpeed);
-        
+        /*if (Input.GetKeyDown(KeyCode.Return) && !isJumping && !isAtack && enemigoActual != null)
+        {
+            animator.SetTrigger("Puch"); 
+           // isAtack = true;
+            DetectarEnemigos();
+        }*/
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            animator.SetTrigger("Puch");
+            DetectarEnemigos();
+        }
+
         animator.SetFloat("Velx", x);
         animator.SetFloat("VelY", y);
 
@@ -62,21 +104,55 @@ public class Player_Move : MonoBehaviour
         // Si está en el suelo y la velocidad vertical es baja, el jugador puede saltar de nuevo
         if (isGrounded && Mathf.Abs(rb.velocity.y) < fallSpeedThreshold)
         {
-            
+            isJumping = false; // Reiniciar el estado de salto cuando toca el suelo
         }
 
-        // Saltar cuando se presiona la barra espaciadora y el personaje está en el suelo
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isJumping)
+        if (!isAtack)
         {
-            
-            animator.SetTrigger("Jump");
-            isJumping = true; // Marcar que el jugador ha saltado
+            // Saltar cuando se presiona la barra espaciadora y el personaje está en el suelo
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !isJumping)
+            {
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                animator.SetTrigger("Jump");
+                isJumping = true; // Marcar que el jugador ha saltado
+            }
         }
 
         // Simulación de daño
         if (Input.GetKeyDown(KeyCode.H))
         {
             TakeDamage(10);
+        }
+    }
+
+    void DetectarEnemigos()
+    {
+        // Buscar todos los enemigos en la escena con el tag "Enemigo"
+        GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemigo");
+
+        foreach (GameObject enemigo in enemigos)
+        {
+            float distancia = Vector3.Distance(transform.position, enemigo.transform.position);
+
+            // Si el enemigo está dentro del rango, aplicar daño
+            if (distancia <= detectionRange)
+            {
+                Debug.Log("Golpe detectado. Aplicando daño en " + damageDelay + " segundos.");
+                StartCoroutine(AplicarDanioConRetraso(enemigo));
+
+            }
+        }
+    }
+
+    IEnumerator AplicarDanioConRetraso(GameObject enemigo)
+    {
+        yield return new WaitForSeconds(damageDelay);  // Esperar el tiempo definido
+
+        // Verificar si el enemigo aún existe antes de aplicar el daño
+        if (enemigo != null)
+        {
+            enemigo.GetComponent<HealthBar>().TakeDamage(10);
+            Debug.Log("Daño aplicado al enemigo: " + enemigo.name);
         }
     }
 
@@ -95,9 +171,32 @@ public class Player_Move : MonoBehaviour
     // Método que simula la muerte del personaje
     void Die()
     {
-        Debug.Log("El personaje ha muerto");
-        // Aquí puedes añadir lógica adicional como reiniciar el nivel, etc.
-        
+        // Busca el objeto que contiene el script con el método MostrarGameOver.
+        GameOver gameOverManager = FindAnyObjectByType<GameOver>();
+
+        if (gameOverManager != null)
+        {
+            gameOverManager.MostrarGameOver(); // Llama al método MostrarGameOver.
+        }
+        else
+        {
+            Debug.LogError("No se encontró el GameOverManager en la escena.");
+        }
     }
-    
+
+
+    public void StopPuch()
+    {
+        isAtack = false; 
+    }
+
+    public void MoveAlone()
+    {
+        moveAlone = true; 
+
+    }
+    public void StopMove()
+    {
+        moveAlone = false; 
+    }
 }
