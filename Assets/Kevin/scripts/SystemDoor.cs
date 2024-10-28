@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class SystemDoor : MonoBehaviour
 {
-     public bool doorOpen = false; // Verifica si la puerta esta abierta o cerrada
-     public float doorOpenAngle = 95f; //Angulo de la puerta al estar abierta
-     public float doorCloseAngle = 0.0f;//Angulo de la puerta al estar cerrada
-     public float smooth  =3.0f;//Velocidad con la que rotata la puertas
+    public bool doorOpen = false; // Verifica si la puerta esta abierta o cerrada
+    public float doorOpenAngle = 95f; //Angulo de la puerta al estar abierta
+    public float doorCloseAngle = 0.0f;//Angulo de la puerta al estar cerrada
+    public float smooth = 3.0f;//Velocidad con la que rotata la puertas
 
-     public AudioClip openDoor;
-     public AudioClip closeDoor;
-
+    public AudioClip openDoor;
+    public AudioClip closeDoor;
+    public bool _intrigger;
     public void ChangeDoorState()
     {
         doorOpen = !doorOpen;
@@ -19,31 +19,39 @@ public class SystemDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_intrigger && Input.GetKeyDown(KeyCode.E))
+        {
+            ChangeDoorState();
+        }
         if (doorOpen)
-        {   
-        Quaternion targetRotation = Quaternion.Euler(0, doorOpenAngle, 0);
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);      
+        {
+            Quaternion targetRotation = Quaternion.Euler(0, doorOpenAngle, 0);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
         }
         else
-        {     
-        Quaternion targetRotation2 = Quaternion.Euler(0, doorCloseAngle, 0);
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation2, smooth * Time.deltaTime);
+        {
+            Quaternion targetRotation2 = Quaternion.Euler(0, doorCloseAngle, 0);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation2, smooth * Time.deltaTime);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "TriggerDoor")
+        if (other.tag == "Player")
         {
+            _intrigger = true;
             AudioSource.PlayClipAtPoint(closeDoor, transform.position, 1);
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "TriggerDoor")
+        if (other.tag == "Player")
         {
+            _intrigger = false;
             AudioSource.PlayClipAtPoint(openDoor, transform.position, 1);
+
         }
     }
 
