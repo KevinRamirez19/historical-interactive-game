@@ -9,6 +9,9 @@ public class PickupPoint : MonoBehaviour
     public Text puntajeTexto; // Referencia al componente UI Text para mostrar el puntaje
     private int puntajeTotal = 0; // Variable para almacenar el puntaje total (compartida con el sistema de entrega)
 
+    [SerializeField] private float cantidadPuntos;
+    [SerializeField] private Puntaje puntaje;
+
     private void Start()
     {
         // Busca el objeto MissionManager en la escena
@@ -33,7 +36,7 @@ public class PickupPoint : MonoBehaviour
 
                 // Actualiza el puntaje en la UI
                 ActualizarPuntajeUI();
-
+                puntaje.sumarPuntos(cantidadPuntos);
                 Destroy(gameObject); // Opcional: Destruye el punto de recogida
             }
         }
