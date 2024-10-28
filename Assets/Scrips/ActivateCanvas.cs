@@ -3,17 +3,17 @@ using UnityEngine.UI;
 
 public class ActivateCanvas : MonoBehaviour
 {
-    public Canvas canvasToActivate; // Canvas que se activará
+    public Canvas canvasToActivate; // Canvas que se activarï¿½
 
     void Start()
     {
-        // Asegúrate de que el canvas esté desactivado al inicio.
+        // Asegï¿½rate de que el canvas estï¿½ desactivado al inicio.
         canvasToActivate.gameObject.SetActive(false);
     }
 
     public void ActivateCanvasVisibility()
     {
-        // Cambia la visibilidad del canvas al presionar el botón.
+        // Cambia la visibilidad del canvas al presionar el botï¿½n.
         canvasToActivate.gameObject.SetActive(true);
     }
 }
