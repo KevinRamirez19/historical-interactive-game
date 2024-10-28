@@ -22,10 +22,12 @@ public class GameOver : MonoBehaviour
     }
     public void ReiniciarNivel()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
     public void IrAlMenuPrincipal()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu Principal"); 
     }
 }

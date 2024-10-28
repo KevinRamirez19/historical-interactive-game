@@ -52013,7 +52013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1636562050647028505, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2972583742041316000, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: canvasToActivate
@@ -129974,6 +129974,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560062002459153321, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560062002459153321, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560062002459153321, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3560062002459153321, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3560062002459153321, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
