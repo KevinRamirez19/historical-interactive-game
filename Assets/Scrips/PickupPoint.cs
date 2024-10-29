@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI; // Necesario para manejar la UI
+using TMPro; // Necesario para manejar TextMeshPro
 
 public class PickupPoint : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PickupPoint : MonoBehaviour
     [SerializeField] private float cantidadPuntos;
     [SerializeField] private Puntaje puntaje;
 
+    [SerializeField] private Canvas mensajeRecolectaCanvas; // Canvas para mostrar mensaje al jugador
+    private float mensajeDuracion = 6f; // Duración en segundos para mostrar el mensaje
+
     private void Start()
     {
         // Busca el objeto MissionManager en la escena
@@ -19,6 +23,12 @@ public class PickupPoint : MonoBehaviour
 
         // Inicializa el puntaje en la UI
         ActualizarPuntajeUI();
+
+        // Asegura que el canvas esté oculto al inicio
+        if (mensajeRecolectaCanvas != null)
+        {
+            mensajeRecolectaCanvas.gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +47,12 @@ public class PickupPoint : MonoBehaviour
                 // Actualiza el puntaje en la UI
                 ActualizarPuntajeUI();
                 puntaje.sumarPuntos(cantidadPuntos);
-                Destroy(gameObject); // Opcional: Destruye el punto de recogida
+
+                // Muestra el canvas de recolección
+                MostrarMensajeRecolecta();
+
+                // Destruye el punto de recogida después de mostrar el mensaje
+                Destroy(gameObject, mensajeDuracion); // Opcional: Destruye después de mostrar el mensaje
             }
         }
     }
@@ -48,6 +63,25 @@ public class PickupPoint : MonoBehaviour
         if (puntajeTexto != null)
         {
             puntajeTexto.text = "Puntaje: " + puntajeTotal.ToString();
+        }
+    }
+
+    // Método para mostrar el canvas de recolección
+    private void MostrarMensajeRecolecta()
+    {
+        if (mensajeRecolectaCanvas != null)
+        {
+            mensajeRecolectaCanvas.gameObject.SetActive(true);
+            Invoke(nameof(OcultarMensajeRecolecta), mensajeDuracion); // Oculta el canvas después de 6 segundos
+        }
+    }
+
+    // Método para ocultar el canvas de recolección
+    private void OcultarMensajeRecolecta()
+    {
+        if (mensajeRecolectaCanvas != null)
+        {
+            mensajeRecolectaCanvas.gameObject.SetActive(false);
         }
     }
 }

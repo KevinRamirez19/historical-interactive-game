@@ -8,6 +8,10 @@ TagManager:
   - Objetivo
   - Enemigo
   - BaseAliada
+  - TriggerDoor
+  - Door
+  - LibroBogotazo
+  - PaintGuerraMilDias
   layers:
   - Default
   - TransparentFX
