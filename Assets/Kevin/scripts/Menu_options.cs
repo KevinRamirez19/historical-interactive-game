@@ -6,15 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class Menu_options : MonoBehaviour 
 {
-    public void IniciarJuego(String NombreNivel)
+    public void IniciarJuego(string NombreNivel)
     {
         SceneManager.LoadScene(NombreNivel);
     }
-    public void  Salir()
-    
+
+    public void Salir()
     {
-            Application.Quit();
-            Debug.Log("Adios :v");
+        Application.Quit();
+        Debug.Log("Adios :v");
     }
 
+    public void MostrarCreditos()
+    {
+        SceneManager.LoadScene(3); // Asegúrate de que la escena de créditos se llame "Creditos" en Unity
+    }
 }
