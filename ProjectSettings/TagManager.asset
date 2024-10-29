@@ -7,6 +7,10 @@ TagManager:
   - Projecto
   - Objetivo
   - Enemigo
+  - TriggerDoor
+  - Door
+  - LibroBogotazo
+  - Apple
   layers:
   - Default
   - TransparentFX

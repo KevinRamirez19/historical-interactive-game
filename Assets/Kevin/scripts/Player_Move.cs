@@ -13,6 +13,7 @@ public class Player_Move : MonoBehaviour
     // Variables para la vida del personaje
     public int maxHealth = 100;
     private int currentHealth;
+    public int healAmount = 20; // Cantidad de salud que se recuperará al tocar la manzana
 
     // Barra de vida
     public Slider healthBar;
@@ -29,7 +30,7 @@ public class Player_Move : MonoBehaviour
     // Velocidad mínima para considerar que el jugador está cayendo
     public float fallSpeedThreshold = 0.1f;
 
-    //Ataque del personaje 
+    // Ataque del personaje 
     public bool isAtack;
     public bool moveAlone;
     public float impulseAtack = 10f;
@@ -44,6 +45,11 @@ public class Player_Move : MonoBehaviour
         if (other.CompareTag("Enemigo")) // Verifica que es el enemigo
         {
             enemigoActual = other.gameObject; // Guardar referencia del enemigo
+        }
+        else if (other.CompareTag("Apple")) // Verifica si toca la manzana
+        {
+            Heal(healAmount); // Llama al método para curar
+            Destroy(other.gameObject); // Destruye la manzana
         }
     }
 
@@ -175,6 +181,14 @@ public class Player_Move : MonoBehaviour
         //Debug.Log("El personaje ha muerto");
     }
 
+    public void Heal(int amount)
+    {
+        currentHealth += amount; // Aumenta la salud
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Limita la salud al máximo permitido
+        healthBar.value = currentHealth; // Actualiza la barra de salud
+        Debug.Log("Salud del jugador: " + currentHealth); // Muestra la salud en la consola
+    }
+
     public void StopPuch()
     {
         isAtack = false; 
@@ -183,8 +197,8 @@ public class Player_Move : MonoBehaviour
     public void MoveAlone()
     {
         moveAlone = true; 
-
     }
+
     public void StopMove()
     {
         moveAlone = false; 
