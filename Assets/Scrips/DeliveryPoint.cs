@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI; // Necesario para manejar la UI
 
@@ -7,8 +8,11 @@ public class DeliveryPoint : MonoBehaviour
 {
     private MissionManager missionManager;
     public int puntajePorEntrega = 50; // Puntaje otorgado por cada entrega
-    public Text puntajeTexto; // Referencia al componente UI Text para mostrar el puntaje
+    public TMP_Text puntajeTexto; // Referencia al componente UI Text para mostrar el puntaje
     private int puntajeTotal = 0; // Variable para almacenar el puntaje total
+
+    [SerializeField] private float cantidadPuntos;
+    [SerializeField] private Puntaje puntaje;
 
     private void Start()
     {
@@ -32,7 +36,7 @@ public class DeliveryPoint : MonoBehaviour
 
             // Actualiza el puntaje en la UI
             ActualizarPuntajeUI();
-
+            puntaje.sumarPuntos(cantidadPuntos);
             Destroy(gameObject); // Opcional: Destruye el punto de entrega
         }
     }
