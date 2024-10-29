@@ -1,16 +1,24 @@
 using UnityEngine;
 
-public class Artifact : MonoBehaviour
+public class Objeto : MonoBehaviour
 {
-    public MissionBB missionBB;
+    private MissionBB missionManager;
+
+    public string mensaje = "Has recogido el objeto"; // Mensaje personalizado para cada objeto
+
+    private void Start()
+    {
+        // Encontrar el MissionBB en la escena
+        missionManager = FindObjectOfType<MissionBB>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+        // Verifica si el objeto que colisiona es el jugador
         if (other.CompareTag("Player"))
         {
-            // Al recoger el artefacto, notificar al MissionManager
-            missionBB.ArtifactCollected();
-            Destroy(gameObject); // Elimina el artefacto del juego
+            // Llama al método de recogida en el MissionBB
+            missionManager.RecogerObjeto(gameObject);
         }
     }
 }

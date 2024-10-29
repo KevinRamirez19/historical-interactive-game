@@ -1,19 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class DeliveryZone : MonoBehaviour
+public class FinalZone : MonoBehaviour
 {
-    public MissionBB missionBB;
-
     private void OnTriggerEnter(Collider other)
     {
+        // Comprobar si el jugador ha entrado en la zona final
         if (other.CompareTag("Player"))
         {
-            // Aquí puedes agregar lógica para finalizar la misión
-            if (missionBB != null)
-            {
-                missionBB.CompleteMission();
-                // Puedes agregar más lógica, como cargar una nueva escena o mostrar un mensaje
-            }
+
+            // Opción 2: Mostrar un mensaje de victoria (puedes usar un Canvas para esto)
+            Debug.Log("¡Felicidades! Has completado la misión.");
+            // Aquí podrías activar un UI que muestre un mensaje de éxito
         }
     }
 }
