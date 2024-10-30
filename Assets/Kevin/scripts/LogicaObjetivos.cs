@@ -17,7 +17,7 @@ public class LogicaObjetivos : MonoBehaviour
     {
         
     }
-
+    /*
     private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Objetivo")
@@ -25,5 +25,5 @@ public class LogicaObjetivos : MonoBehaviour
             Destroy(col.transform.parent.gameObject);
 
         }
-    }
+    }*/
 }

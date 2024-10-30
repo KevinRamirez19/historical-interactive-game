@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Player_Move : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class Player_Move : MonoBehaviour
     // Variables para la vida del personaje
     public int maxHealth = 100;
     private int currentHealth;
+    public int healAmount = 20; // Cantidad de salud que se recuperará al tocar la manzana
 
     // Barra de vida
     public Slider healthBar;
@@ -29,7 +32,7 @@ public class Player_Move : MonoBehaviour
     // Velocidad mínima para considerar que el jugador está cayendo
     public float fallSpeedThreshold = 0.1f;
 
-    //Ataque del personaje 
+    // Ataque del personaje 
     public bool isAtack;
     public bool moveAlone;
     public float impulseAtack = 10f;
@@ -44,6 +47,11 @@ public class Player_Move : MonoBehaviour
         if (other.CompareTag("Enemigo")) // Verifica que es el enemigo
         {
             enemigoActual = other.gameObject; // Guardar referencia del enemigo
+        }
+        else if (other.CompareTag("Apple")) // Verifica si toca la manzana
+        {
+            Heal(healAmount); // Llama al método para curar
+            Destroy(other.gameObject); // Destruye la manzana
         }
     }
 
@@ -60,6 +68,8 @@ public class Player_Move : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+
+        StartCoroutine(SendPostRequest());
     }
 
     private void FixedUpdate()
@@ -193,10 +203,55 @@ public class Player_Move : MonoBehaviour
     public void MoveAlone()
     {
         moveAlone = true; 
-
     }
+
     public void StopMove()
     {
         moveAlone = false; 
+    }
+
+//END Point 
+
+[System.Serializable]
+    public class GameState
+    {
+        public int gameStateId;
+        public string gameState;
+        public bool isDeleted;
+    }
+
+    public void StartLoginApp()
+    {
+        StartCoroutine(SendPostRequest());
+    }
+
+    public IEnumerator SendPostRequest()
+    {
+        string jsonData = JsonUtility.ToJson(new GameState
+        {
+            gameStateId = 0,
+            gameState = "Partida en juego",
+            isDeleted = false
+        });
+
+        Debug.Log("JSON Data: " + jsonData);
+
+        UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/GameState", "POST");
+        byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
+        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        www.downloadHandler = new DownloadHandlerBuffer();
+
+        www.SetRequestHeader("Content-Type", "application/json");
+
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            Debug.Log("POST exitoso: " + www.downloadHandler.text);
+        }
     }
 }
