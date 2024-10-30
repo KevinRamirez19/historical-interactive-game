@@ -82,8 +82,8 @@ public class Player_Move : MonoBehaviour
     {
         if (!isAtack)
         {
-            transform.Rotate(0, x * Time.deltaTime * rotationSpeed, 0);
-            transform.Translate(0, 0, y * Time.deltaTime * runSpeed);
+            rb.MovePosition(rb.position + transform.forward * y * runSpeed * Time.deltaTime);
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(0, x * rotationSpeed * Time.deltaTime, 0));
         }
 
 
