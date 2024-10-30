@@ -19,6 +19,6 @@ public class Menu_options : MonoBehaviour
 
     public void MostrarCreditos()
     {
-        SceneManager.LoadScene(3); // Asegúrate de que la escena de créditos se llame "Creditos" en Unity
+        SceneManager.LoadScene(4); // Asegúrate de que la escena de créditos se llame "Creditos" en Unity
     }
 }
