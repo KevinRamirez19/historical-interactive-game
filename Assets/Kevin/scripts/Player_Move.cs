@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player_Move : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class Player_Move : MonoBehaviour
             Heal(healAmount); // Llama al método para curar
             Destroy(other.gameObject); // Destruye la manzana
         }
+    }
+
+    public  void Heal(int healAmount)
+    {
+        
     }
 
     private void OnTriggerExit(Collider other)
