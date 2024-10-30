@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using static HealthBar;
+using System;
 
 public class Player_Move : MonoBehaviour
 {
@@ -180,6 +182,8 @@ public class Player_Move : MonoBehaviour
 
         if (gameOverManager != null)
         {
+            StartCoroutine(SendPostDieRequest());
+            StartCoroutine(SendPostGameRequest());
             gameOverManager.MostrarGameOver(); // Llama al método MostrarGameOver.
         }
         else
@@ -231,6 +235,83 @@ public class Player_Move : MonoBehaviour
         Debug.Log("JSON Data: " + jsonData);
 
         UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/GameState", "POST");
+        byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
+        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        www.downloadHandler = new DownloadHandlerBuffer();
+
+        www.SetRequestHeader("Content-Type", "application/json");
+
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            Debug.Log("POST exitoso: " + www.downloadHandler.text);
+        }
+    }
+
+    public IEnumerator SendPostDieRequest()
+    {
+        string jsonData = JsonUtility.ToJson(new GameState
+        {
+            gameStateId = 0,
+            gameState = "La partida a finalizado",
+            isDeleted = false
+        });
+
+        Debug.Log("JSON Data: " + jsonData);
+
+        UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/GameState", "POST");
+        byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
+        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        www.downloadHandler = new DownloadHandlerBuffer();
+
+        www.SetRequestHeader("Content-Type", "application/json");
+
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            Debug.Log("POST exitoso: " + www.downloadHandler.text);
+        }
+    }
+
+    [System.Serializable]
+    public class Games
+    {
+
+        public int user_Id;
+        public DateTime gameDate;
+        public int gameState_Id;
+        public string punctuation;
+        public int scenary_Id;
+        public int gameProgress_Id;
+        public bool isDeleted;
+    }
+
+    public IEnumerator SendPostGameRequest()
+    {
+        string jsonData = JsonUtility.ToJson(new Games
+        {
+            user_Id = 1,
+            gameDate = DateTime.Now,
+            gameState_Id = 1,
+            punctuation = "200",
+            scenary_Id = 1,
+            gameProgress_Id = 1,
+            isDeleted = false
+        });
+
+        Debug.Log("JSON Data: " + jsonData);
+
+        UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/Games", "POST");
         byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
         www.uploadHandler = new UploadHandlerRaw(bodyRaw);
         www.downloadHandler = new DownloadHandlerBuffer();
