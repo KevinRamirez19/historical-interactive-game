@@ -20,7 +20,6 @@ public class EndPointScenary : MonoBehaviour
         public string scenaryName;
         public string description;
         public int order;
-        public int achievementsobtained;
         public bool isDeleted;
     }
 
@@ -36,8 +35,7 @@ public class EndPointScenary : MonoBehaviour
             scenaryId = 0,
             scenaryName = "Guerra de los mil dias",
             description = "La Guerra de los Mil Días fue un conflicto civil de Colombia disputado entre el 17 de octubre de 1899 y el 21 de noviembre de 1902, por inconformidades ante políticas y resultados anteriores de la política de la Regeneración apoyada por el Partido Nacional",
-            order = 1,
-            achievementsobtained = 0,
+            order = 2,
             isDeleted = false
         });
 

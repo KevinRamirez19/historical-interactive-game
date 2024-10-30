@@ -1,75 +1,70 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using TMPro;
 
 public class MissionBB : MonoBehaviour
 {
-    public int totalArtifacts = 6; // Total de artefactos a recolectar
-    private int collectedArtifacts = 0; // Artefactos recolectados
-    public TMP_Text messageText; // Campo para mostrar mensajes en la UI
-    public GameObject finalZone; // Referencia a la zona final que se debe ocultar inicialmente
-    public string hiddenLayerName = "FinalZoneHidden"; // Nombre de la capa para ocultar el plano en el mapa
-    private int defaultLayer; // Almacena la capa original del plano
+    public GameObject[] objetos; // Arreglo de objetos a recoger
+    public GameObject finalZone; // Zona final
+    public Text mensajeUI; // Referencia al texto del canvas para mostrar mensajes
+    public float duracionMensaje = 2f; // Duración del mensaje en pantalla
 
-    void Start()
+    private int objetoRecogidoIndex = 0; // Índice del objeto actualmente recogido
+
+    private void Start()
     {
-        // Guarda la capa original del FinalZone
-        if (finalZone != null)
+        // Desactivar todos los objetos excepto el primero en la secuencia
+        for (int i = 0; i < objetos.Length; i++)
         {
-            defaultLayer = finalZone.layer;
-            finalZone.layer = LayerMask.NameToLayer(hiddenLayerName); // Cambia la capa para que no se vea en el mapa
-            finalZone.SetActive(false); // Oculta la zona final
+            objetos[i].SetActive(i == 0); // Solo el primer objeto está activo
         }
+
+        // Desactivar la zona final al inicio
+        finalZone.SetActive(false);
+
+        // Mensaje inicial
+        mensajeUI.text = "Recoge los objetos en orden";
     }
 
-    // Método llamado cuando se recoja un artefacto
-    public void ArtifactCollected()
+    public void RecogerObjeto(GameObject objeto)
     {
-        collectedArtifacts++;
-
-        if (collectedArtifacts < totalArtifacts)
+        // Asegurarse de que el índice actual está dentro del rango
+        if (objetoRecogidoIndex < objetos.Length && objeto == objetos[objetoRecogidoIndex])
         {
-            ShowMessage($"Has recogido un artefacto. Te faltan {totalArtifacts - collectedArtifacts} artefactos.", 5f);
+            // Mostrar el mensaje asociado al objeto y ocultarlo tras una duración específica
+            mensajeUI.text = objeto.GetComponent<Objeto>().mensaje;
+            StartCoroutine(OcultarMensaje());
+
+            // Desactivar el objeto recogido
+            objeto.SetActive(false);
+
+            // Incrementar el índice para el siguiente objeto
+            objetoRecogidoIndex++;
+
+            // Activar el siguiente objeto si está dentro del rango
+            if (objetoRecogidoIndex < objetos.Length)
+            {
+                objetos[objetoRecogidoIndex].SetActive(true);
+            }
+            else
+            {
+                // Si se han recogido todos los objetos, activar la zona final
+                finalZone.SetActive(true);
+                mensajeUI.text = "¡Has recogido todos los objetos!";
+            }
         }
         else
         {
-            CompleteMission();
+            // Mensaje temporal de error si el jugador intenta recoger un objeto fuera de orden
+            mensajeUI.text = "Recoge el objeto correcto primero.";
+            StartCoroutine(OcultarMensaje());
         }
     }
 
-    // Método para finalizar la misión
-    public void CompleteMission()
+    // Coroutine para ocultar el mensaje tras una duración especificada
+    private IEnumerator OcultarMensaje()
     {
-        ShowMessage("¡Misión completada! Todos los artefactos han sido recolectados.", 5f);
-        Debug.Log("¡Misión completada! Todos los artefactos han sido recolectados.");
-
-        // Haz visible la zona final y cambia la capa para que aparezca en el mapa
-        if (finalZone != null)
-        {
-            finalZone.SetActive(true);
-            finalZone.layer = defaultLayer; // Cambia la capa de vuelta a la original
-        }
-    }
-
-    // Método para mostrar mensajes y hacer que desaparezcan después de un tiempo
-    private void ShowMessage(string message, float duration)
-    {
-        if (messageText != null)
-        {
-            messageText.text = message;
-            StartCoroutine(HideMessageAfterTime(duration));
-        }
-        else
-        {
-            Debug.Log(message);
-        }
-    }
-
-    // Corrutina para ocultar el mensaje después de un tiempo
-    private IEnumerator HideMessageAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-        messageText.text = "";
+        yield return new WaitForSeconds(duracionMensaje);
+        mensajeUI.text = ""; // Limpia el mensaje después del tiempo especificado
     }
 }
