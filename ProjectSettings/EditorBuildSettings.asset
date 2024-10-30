@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GuerraDeLosMilDIas.unity
     guid: 7c3c5f20cdb45b8478bd396b149c3986
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 6f3399204f9525b458ee684361601dd7
   m_configObjects: {}

@@ -28,6 +28,7 @@ public class HandleScenes : MonoBehaviour
        {
         _block2.SetActive(false);
        }
+       
     }
     
     

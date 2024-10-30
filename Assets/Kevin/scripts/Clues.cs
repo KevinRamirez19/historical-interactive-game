@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Clues : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Clues : MonoBehaviour
     public float _time = 0f;
     public string _miTexto; 
     public Positions? _positions;
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,14 +62,27 @@ public class Clues : MonoBehaviour
         
         if (_other.CompareTag("Player"))
         {
+            StartCoroutine(SendPostRequest());
             Debug.Log("Hola");
             _panelPressE.SetActive(true);
             _inTrigger = true;
-        
-
 
         }
+
     }
+    [System.Serializable]
+public class GameProgress
+{
+    public int gameProgressId;
+    public string gameProgress;
+    public string description;
+    public bool isDeleted;
+}
+
+public void StartLoginApp()
+{
+    StartCoroutine(SendPostRequest());
+}
     private void OnTriggerStay()
     {
     if (_panelMision.activeSelf )
@@ -86,4 +101,35 @@ public class Clues : MonoBehaviour
         }
 
     }
+    public IEnumerator SendPostRequest()
+{
+    string jsonData = JsonUtility.ToJson(new GameProgress
+    {
+        gameProgressId = 1,
+        gameProgress = "Primera interaccion existosa",
+        description = "El jugador ha comenzado con las pistas",
+        isDeleted = false
+    });
+
+    Debug.Log("JSON Data: " + jsonData);
+
+    UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/GameProgress", "POST");
+    byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
+    www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+    www.downloadHandler = new DownloadHandlerBuffer();
+
+    www.SetRequestHeader("Content-Type", "application/json");
+
+    yield return www.SendWebRequest();
+
+    if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+    {
+        Debug.LogError(www.error);
+    }
+    else
+    {
+        Debug.Log("POST exitoso: " + www.downloadHandler.text);
+    }
 }
+}
+

@@ -56,7 +56,7 @@ public class Player_Move : MonoBehaviour
         }
     }
 
-    public  void Heal(int healAmount)
+    public void Heal(int healAmount)
     {
         
     }
