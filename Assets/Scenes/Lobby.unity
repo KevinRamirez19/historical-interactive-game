@@ -32642,6 +32642,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 257307623238408841, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 516782757187952690, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
       propertyPath: canvasToActivate
       value: 
@@ -32768,6 +32772,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5618040719939472459, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5776888469827165012, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6864364757926846905, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}

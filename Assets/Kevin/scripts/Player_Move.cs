@@ -58,7 +58,12 @@ public class Player_Move : MonoBehaviour
 
     public void Heal(int healAmount)
     {
-        
+        currentHealth += healAmount;
+    if (currentHealth > maxHealth) // Asegúrate de que no exceda el máximo
+    {
+        currentHealth = maxHealth;
+    }
+    healthBar.value = currentHealth; // Actualiza la barra de salud
     }
 
     private void OnTriggerExit(Collider other)
