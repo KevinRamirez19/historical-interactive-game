@@ -40,8 +40,6 @@ public class PickupPoint : MonoBehaviour
         {
             if (missionManager != null && missionManager.CanPickup(currentPickupIndex)) // Verifica si el índice de recogida es válido
             {
-                StartCoroutine(SendPostRequest());
-
                 // Llama al método para manejar la recogida de mensajes en el MissionManager
                 missionManager.OnMessagePickedUp();
 
@@ -59,20 +57,6 @@ public class PickupPoint : MonoBehaviour
                 Destroy(gameObject, mensajeDuracion); // Opcional: Destruye después de mostrar el mensaje
             }
         }
-    }
-
-    [System.Serializable]
-    public class GameProgress
-    {
-        public int gameProgressId;
-        public string gameProgress;
-        public string description;
-        public bool isDeleted;
-    }
-
-    public void StartLoginApp()
-    {
-        StartCoroutine(SendPostRequest());
     }
 
     // Método para actualizar el puntaje en la UI
@@ -102,36 +86,4 @@ public class PickupPoint : MonoBehaviour
             mensajeRecolectaCanvas.gameObject.SetActive(false);
         }
     }
-
-    public IEnumerator SendPostRequest()
-    {
-        string jsonData = JsonUtility.ToJson(new GameProgress
-        {
-            gameProgressId = 1,
-            gameProgress = "Primer mensaje recolectado",
-            description = "El jugador ha recogido exitosamente el primer mensaje, ahora se dirije al primer punto de entrega",
-            isDeleted = false
-        });
-
-        Debug.Log("JSON Data: " + jsonData);
-
-        UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/GameProgress", "POST");
-        byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
-        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-        www.downloadHandler = new DownloadHandlerBuffer();
-
-        www.SetRequestHeader("Content-Type", "application/json");
-
-        yield return www.SendWebRequest();
-
-        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
-        {
-            Debug.LogError(www.error);
-        }
-        else
-        {
-            Debug.Log("POST exitoso: " + www.downloadHandler.text);
-        }
-    }
-
 }
