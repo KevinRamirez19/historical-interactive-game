@@ -220,6 +220,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 894822543}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &93977042
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3590716887960534853, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.981155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.0031128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 50.22263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224122809725642239, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295400930097251446, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_Speed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057008346852398338, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9057008346852398338, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f13c9a441855774eb12fa05fa250f24, type: 3}
 --- !u!1 &146358694
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +622,7 @@ GameObject:
   - component: {fileID: 321368295}
   - component: {fileID: 321368296}
   - component: {fileID: 321368297}
+  - component: {fileID: 321368298}
   m_Layer: 0
   m_Name: Objeto6
   m_TagString: Untagged
@@ -598,7 +680,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba0dacbdc57daa4280f82709c60fa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mensaje: dirijete a la zon afinal
+  mensaje: "\"Tras la victoria en Boyac\xE1, se consolid\xF3 el sue\xF1o de libertad
+    en Sudam\xE9rica. Colombia inici\xF3 un proceso de independencia que resultar\xEDa
+    en la creaci\xF3n de una naci\xF3n soberana. Esta batalla tambi\xE9n impuls\xF3
+    la causa en otros pa\xEDses del continente, lo que llevar\xEDa a la liberaci\xF3n
+    de Venezuela, Ecuador, Per\xFA y Bolivia. \xA1Ahora has recolectado todos los
+    artefactos y obtenido la espada legendaria de Simon Bolivar! Usa esta espada
+    para continuar con tu misi\xF3n y descubrir nuevas historias de Colombia\""
+--- !u!114 &321368298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321368294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5144f457bf87c14479e558b4abf7c26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameProgressId: 1
+  gameProgressMessage: Sexto objeto recogido
+  descriptionMessage: El jugador ha recogido exitosamente el sexto objeto, ahora
+    se dirige al punto de entrega.
+  apiUrl: https://nationalmuseum2.somee.com/api/GameProgress
 --- !u!1001 &333149449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,6 +881,7 @@ GameObject:
   - component: {fileID: 355009444}
   - component: {fileID: 355009445}
   - component: {fileID: 355009446}
+  - component: {fileID: 355009447}
   m_Layer: 0
   m_Name: Objeto1
   m_TagString: Untagged
@@ -833,7 +939,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba0dacbdc57daa4280f82709c60fa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mensaje: Dirigete al segundo objeto
+  mensaje: "\"Los conflictos en la Nueva Granada comenzaron por el deseo de independencia
+    frente al dominio espa\xF1ol. Los patriotas, inspirados por ideales de libertad
+    y justicia, decidieron actuar para lograr la independencia de la opresi\xF3n.
+    Esta batalla, liderada por Sim\xF3n Bol\xEDvar y otros grandes l\xEDderes, fue
+    el momento decisivo para liberarse del dominio colonial.\""
+--- !u!114 &355009447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355009443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dfa9cec423ed540aca0648786cda14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameProgressId: 1
+  gameProgressMessage: Primer objeto recogido
+  descriptionMessage: El jugador ha recogido exitosamente el primer objeto, ahora
+    se dirige al siguiente.
+  apiUrl: https://nationalmuseum2.somee.com/api/GameProgress
+--- !u!1 &409726554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 409726556}
+  - component: {fileID: 409726555}
+  m_Layer: 0
+  m_Name: CoroutineManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &409726555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409726554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9ba96eca7d2bb4e81d525fc3b15717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &409726556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409726554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42.01509, y: 18.96148, z: 144.62663}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444465654
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +1016,7 @@ GameObject:
   - component: {fileID: 444465655}
   - component: {fileID: 444465656}
   - component: {fileID: 444465657}
+  - component: {fileID: 444465658}
   m_Layer: 0
   m_Name: Objeto4
   m_TagString: Untagged
@@ -902,7 +1074,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba0dacbdc57daa4280f82709c60fa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mensaje: dirijete al quinbto objeto
+  mensaje: "\"La batalla fue intensa y r\xE1pida. Las tropas patriotas atacaron con
+    fuerza, mientras los realistas intentaron defenderse. A medida que avanzaban,
+    el ej\xE9rcito patriota se gan\xF3 una ventaja crucial, rodeando a las fuerzas
+    enemigas. La ubicaci\xF3n del puente y el elemento sorpresa jugaron un papel
+    fundamental en el \xE9xito del plan de Bol\xEDvar.\""
+--- !u!114 &444465658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444465654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc44e081d4b98024caf0be299931e765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameProgressId: 1
+  gameProgressMessage: Cuarto objeto recogido
+  descriptionMessage: El jugador ha recogido exitosamente el cuarto objeto, ahora
+    se dirige al quinto.
+  apiUrl: https://nationalmuseum2.somee.com/api/GameProgress
 --- !u!223 &448762538 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3914348670052550702, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
@@ -1581,7 +1774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 0.030918274, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1590,10 +1783,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1601,7 +1794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Recoje los objetos
+  m_Text: 
 --- !u!222 &997234743
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2101,7 +2294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1636562050647028505, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2972583742041316000, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: canvasToActivate
@@ -2855,6 +3048,7 @@ GameObject:
   - component: {fileID: 1541547885}
   - component: {fileID: 1541547886}
   - component: {fileID: 1541547887}
+  - component: {fileID: 1541547888}
   m_Layer: 0
   m_Name: Objeto3
   m_TagString: Untagged
@@ -2912,7 +3106,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba0dacbdc57daa4280f82709c60fa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mensaje: dirijete al cuarto objeto
+  mensaje: "\"En las primeras horas del 7 de agosto de 1819, las tropas patriotas
+    se encontraron con el ej\xE9rcito realista en el Puente de Boyac\xE1. Con t\xE1cticas
+    organizadas y una distribuci\xF3n estrat\xE9gica de tropas, los patriotas se
+    dispusieron a enfrentarse en una batalla decisiva. Con Bol\xEDvar al mando y
+    Francisco de Paula Santander a su lado, el ej\xE9rcito se prepar\xF3 para un
+    enfrentamiento crucial.\""
+--- !u!114 &1541547888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541547884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88587378baa3a41459e7263bc6a1b4eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameProgressId: 1
+  gameProgressMessage: Tercer objeto recogido
+  descriptionMessage: El jugador ha recogido exitosamente el tercer objeto, ahora
+    se dirige al cuarto.
+  apiUrl: https://nationalmuseum2.somee.com/api/GameProgress
 --- !u!1001 &1546470280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3213,6 +3429,7 @@ GameObject:
   - component: {fileID: 1628828170}
   - component: {fileID: 1628828171}
   - component: {fileID: 1628828172}
+  - component: {fileID: 1628828173}
   m_Layer: 0
   m_Name: Objeto5
   m_TagString: Untagged
@@ -3270,7 +3487,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba0dacbdc57daa4280f82709c60fa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mensaje: dirijete al sexto objeto
+  mensaje: "\"Al final de la tarde, las tropas patriotas lograron vencer al ej\xE9rcito
+    realista. Fue una victoria hist\xF3rica que marc\xF3 el inicio de la independencia
+    de Colombia y la derrota del poder colonial en la regi\xF3n. Este triunfo no
+    solo liber\xF3 a la Nueva Granada, sino que tambi\xE9n inspir\xF3 movimientos
+    de independencia en otros territorios bajo el dominio espa\xF1ol.\""
+--- !u!114 &1628828173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628828169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42826f69bf9b33d43a7c189ab3377eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameProgressId: 1
+  gameProgressMessage: Quinto objeto recogido
+  descriptionMessage: El jugador ha recogido exitosamente el quinto objeto, ahora
+    se dirige al ultimo.
+  apiUrl: https://nationalmuseum2.somee.com/api/GameProgress
 --- !u!1001 &1641638533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3856,6 +4094,7 @@ GameObject:
   - component: {fileID: 1978403256}
   - component: {fileID: 1978403257}
   - component: {fileID: 1978403258}
+  - component: {fileID: 1978403259}
   m_Layer: 0
   m_Name: Objeto2
   m_TagString: Untagged
@@ -3913,7 +4152,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba0dacbdc57daa4280f82709c60fa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mensaje: Dirijete al tercer objeto
+  mensaje: "\"Los conflictos en la Nueva Granada comenzaron por el deseo de independencia
+    frente al dominio espa\xF1ol. Los patriotas, inspirados por ideales de libertad
+    y justicia, decidieron actuar para lograr la independencia de la opresi\xF3n.
+    Esta batalla, liderada por Sim\xF3n Bol\xEDvar y otros grandes l\xEDderes, fue
+    el momento decisivo para liberarse del dominio colonial.\""
+--- !u!114 &1978403259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978403255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0de346ee85df949bec04b5e01d3527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameProgressId: 1
+  gameProgressMessage: Segundo objeto recogido
+  descriptionMessage: El jugador ha recogido exitosamente el segundo objeto, ahora
+    se dirige al siguiente.
+  apiUrl: https://nationalmuseum2.somee.com/api/GameProgress
 --- !u!1 &2048320400
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,3 +5225,5 @@ SceneRoots:
   - {fileID: 1322993054}
   - {fileID: 160103449}
   - {fileID: 1901339885}
+  - {fileID: 409726556}
+  - {fileID: 93977042}
