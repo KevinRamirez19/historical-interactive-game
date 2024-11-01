@@ -7,7 +7,7 @@ public class MissionBB : MonoBehaviour
     public GameObject[] objetos; // Arreglo de objetos a recoger
     public GameObject finalZone; // Zona final
     public Text mensajeUI; // Referencia al texto del canvas para mostrar mensajes
-    public float duracionMensaje = 2f; // Duración del mensaje en pantalla
+    public float duracionMensaje = 20f; // Duración del mensaje en pantalla
 
     private int objetoRecogidoIndex = 0; // Índice del objeto actualmente recogido
 
@@ -21,9 +21,6 @@ public class MissionBB : MonoBehaviour
 
         // Desactivar la zona final al inicio
         finalZone.SetActive(false);
-
-        // Mensaje inicial
-        mensajeUI.text = "Recoge los objetos en orden";
     }
 
     public void RecogerObjeto(GameObject objeto)
