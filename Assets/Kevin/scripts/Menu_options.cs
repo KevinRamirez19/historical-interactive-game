@@ -8,6 +8,7 @@ public class Menu_options : MonoBehaviour
 {
     public void IniciarJuego(string NombreNivel)
     {
+        PlayerPrefs.SetInt("mostrarObjeto", 0);
         SceneManager.LoadScene(NombreNivel);
     }
 
