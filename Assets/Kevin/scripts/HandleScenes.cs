@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,29 @@ public class HandleScenes : MonoBehaviour
 
     void Update()
     {
+        int mostrarObjeto = PlayerPrefs.GetInt("mostrarObjeto", 0); 
+
+        if (mostrarObjeto == 1)
+        {
+            _block1.SetActive(false); 
+            _book.SetActive(true);
+        }
+        else
+        {
+            _block1.SetActive(true);
+        }
+
+        if (mostrarObjeto == 2)
+        {
+            _block2.SetActive(false); 
+        }
+        else
+        {
+            _block2.SetActive(true);
+        }
+
+
+        /*
        if (_firstScene)
        {
         _block1.SetActive(false);
@@ -29,7 +53,8 @@ public class HandleScenes : MonoBehaviour
         _block2.SetActive(false);
        }
        
+    }*/
+
+
     }
-    
-    
 }

@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     }
     public void IrAlMenuPrincipal()
     {
+        PlayerPrefs.SetInt("mostrarObjeto", 1);
         Time.timeScale = 1;
         SceneManager.LoadScene("Lobby");
     }
