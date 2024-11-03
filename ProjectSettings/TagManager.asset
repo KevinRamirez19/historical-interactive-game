@@ -12,6 +12,8 @@ TagManager:
   - Door
   - LibroBogotazo
   - PaintGuerraMilDias
+  - Apple
+  - PaintBogotazo
   layers:
   - Default
   - TransparentFX

@@ -49,7 +49,8 @@ public class Player_Move : MonoBehaviour
         {
             enemigoActual = other.gameObject; // Guardar referencia del enemigo
         }
-        else if (other.CompareTag("Apple")) // Verifica si toca la manzana
+        
+        if (other.CompareTag("Apple")) // Verifica si toca la manzana
         {
             Heal(healAmount); // Llama al método para curar
             Destroy(other.gameObject); // Destruye la manzana
