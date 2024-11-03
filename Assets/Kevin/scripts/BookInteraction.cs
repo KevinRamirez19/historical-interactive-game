@@ -9,6 +9,7 @@ public class InteraccionLibro : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayerPrefs.SetInt("mostrarObjeto", 1);
             SceneManager.LoadScene(1);  // Asegúrate de que "Lobby" es el nombre correcto de la escena
         }
     }
