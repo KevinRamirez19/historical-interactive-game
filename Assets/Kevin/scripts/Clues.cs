@@ -16,7 +16,7 @@ public class Clues : MonoBehaviour
     public float _time = 0f;
     public string _miTexto; 
     public Positions? _positions;
-
+    public GameObject libro; // Referencia al objeto libro
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,8 @@ public class Clues : MonoBehaviour
         _textPanelMision.text = _miTexto;
         _inTrigger = false;
         _conversationSteps = 0;
-        _positions = GameObject.Find("People_Obstacles")?.GetComponent<Positions>()?? null;        
+        _positions = GameObject.Find("People_Obstacles")?.GetComponent<Positions>() ?? null;
+        libro.SetActive(false); // Asegúrate de que el libro esté desactivado al inicio
     }
 
     // Update is called once per frame
@@ -42,54 +43,59 @@ public class Clues : MonoBehaviour
             }
         }
 
-        if (_panelMision.activeSelf && _time >=1f)
+        if (_panelMision.activeSelf && _time >= 1f)
         {
-
             if (Input.GetKeyUp(KeyCode.E) && _inTrigger)
             {
                 _panelMision.SetActive(false);
                 _panelPressE.SetActive(true);
                 _time = 0f;
+
                 if (_positions)
                 {
-                _positions._animator.SetBool("Block", true);
+                    _positions._animator.SetBool("Block", true);
                 }
+
+                // Activa el libro después de la interacción
+                libro.SetActive(true);
+                Debug.Log("El libro ha aparecido después de la interacción.");
             }
         }
     }
+
     private void OnTriggerEnter(Collider _other)
     {
-        
         if (_other.CompareTag("Player"))
         {
             StartCoroutine(SendPostRequest());
             Debug.Log("Hola");
             _panelPressE.SetActive(true);
             _inTrigger = true;
-
         }
-
     }
-    [System.Serializable]
-public class GameProgress
-{
-    public int gameProgressId;
-    public string gameProgress;
-    public string description;
-    public bool isDeleted;
-}
 
-public void StartLoginApp()
-{
-    StartCoroutine(SendPostRequest());
-}
+    [System.Serializable]
+    public class GameProgress
+    {
+        public int gameProgressId;
+        public string gameProgress;
+        public string description;
+        public bool isDeleted;
+    }
+
+    public void StartLoginApp()
+    {
+        StartCoroutine(SendPostRequest());
+    }
+
     private void OnTriggerStay()
     {
-    if (_panelMision.activeSelf )
-    {
-         _time += Time.deltaTime;
+        if (_panelMision.activeSelf)
+        {
+            _time += Time.deltaTime;
+        }
     }
-    }
+
     private void OnTriggerExit(Collider _other)
     {
         if (_other.CompareTag("Player"))
@@ -99,37 +105,36 @@ public void StartLoginApp()
             _inTrigger = false;
             _time = 0f;
         }
-
     }
+
     public IEnumerator SendPostRequest()
-{
-    string jsonData = JsonUtility.ToJson(new GameProgress
     {
-        gameProgressId = 1,
-        gameProgress = "Primera interaccion existosa",
-        description = "El jugador ha comenzado con las pistas",
-        isDeleted = false
-    });
+        string jsonData = JsonUtility.ToJson(new GameProgress
+        {
+            gameProgressId = 1,
+            gameProgress = "Primera interaccion existosa",
+            description = "El jugador ha comenzado con las pistas",
+            isDeleted = false
+        });
 
-    Debug.Log("JSON Data: " + jsonData);
+        Debug.Log("JSON Data: " + jsonData);
 
-    UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/GameProgress", "POST");
-    byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
-    www.uploadHandler = new UploadHandlerRaw(bodyRaw);
-    www.downloadHandler = new DownloadHandlerBuffer();
+        UnityWebRequest www = new UnityWebRequest("https://nationalmuseum2.somee.com/api/GameProgress", "POST");
+        byte[] bodyRaw = new System.Text.UTF8Encoding().GetBytes(jsonData);
+        www.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        www.downloadHandler = new DownloadHandlerBuffer();
 
-    www.SetRequestHeader("Content-Type", "application/json");
+        www.SetRequestHeader("Content-Type", "application/json");
 
-    yield return www.SendWebRequest();
+        yield return www.SendWebRequest();
 
-    if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
-    {
-        Debug.LogError(www.error);
-    }
-    else
-    {
-        Debug.Log("POST exitoso: " + www.downloadHandler.text);
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError(www.error);
+        }
+        else
+        {
+            Debug.Log("POST exitoso: " + www.downloadHandler.text);
+        }
     }
 }
-}
-

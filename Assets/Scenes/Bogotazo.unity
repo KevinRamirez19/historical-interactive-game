@@ -3214,6 +3214,7 @@ MonoBehaviour:
     a este asesinato. Pero recuerda, el pa\xEDs entero pronto estar\xE1 en llamas,
     y esta ser\xE1 una herida que tomar\xE1 d\xE9cadas en sanar."
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &35009925
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -55973,7 +55974,7 @@ PrefabInstance:
     - target: {fileID: 1225351525803140160, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: canvasToActivate
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1267960719}
     - target: {fileID: 1236929458303963627, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: m_text
       value: "\"\xA1Bienvenid@ al siguiente cap\xEDtulo de esta aventura hist\xF3rica!
@@ -55996,7 +55997,7 @@ PrefabInstance:
     - target: {fileID: 2972583742041316000, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: canvasToActivate
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1267960719}
     - target: {fileID: 6439195280642033734, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -59180,6 +59181,7 @@ MonoBehaviour:
   _miTexto: Lograste llegar con vida, ten esta manzana para que te cures y sigas
     en la persecucion del asesino
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &723644931
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -85279,6 +85281,7 @@ MonoBehaviour:
     pa\xEDs. Recuerda, los actos de uno pueden incendiar la historia de muchos. \xBFPero
     es justicia tomar venganza o cambiar el futuro?\""
   _positions: {fileID: 0}
+  libro: {fileID: 1619231126}
 --- !u!136 &1021889270
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -85733,6 +85736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 20
+  healthSlider: {fileID: 0}
 --- !u!4 &1032602562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2853482757323472804, guid: f3e46b4b7b1590a4c87983b3645c9a49, type: 3}
@@ -101476,6 +101480,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7303116509305054165, guid: dfec8d9b723b08e4ab4463a1b8f9cd7d, type: 3}
   m_PrefabInstance: {fileID: 541272725}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &1267960719 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 7601837717964368557, guid: 7b75cdb02b079ab41a2ee6ac9c1e548a, type: 3}
+  m_PrefabInstance: {fileID: 674425264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1267988986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7303116509305054165, guid: dfec8d9b723b08e4ab4463a1b8f9cd7d, type: 3}
@@ -102992,6 +103001,7 @@ MonoBehaviour:
     entradas. Se avecinan cambios en el pa\xEDs que afectar\xE1n a millones\u2026
     Ser\xEDa muy dif\xEDcil detener lo que se ha desatado."
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &1276425096
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -103923,6 +103933,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ed7ed62c2687ecd4ab6427d4fea5f600, type: 3}
   m_PrefabInstance: {fileID: 1287380918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1287600195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287600196}
+  m_Layer: 0
+  m_Name: BackGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287600196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287600195}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 945.4527, y: 531.4954, z: 367.02386}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1793857010}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1287674138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 934e78084ca3e004a904716903e5e5e5, type: 3}
@@ -106993,6 +107035,7 @@ MonoBehaviour:
     en las calles es solo el comienzo. Colombia no ser\xE1 la misma despu\xE9s de
     este d\xEDa"
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &1331601237
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -109494,6 +109537,14 @@ PrefabInstance:
     - target: {fileID: 5618040719939472459, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864364757926846905, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30.400024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864364757926846905, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -29.199997
       objectReference: {fileID: 0}
     - target: {fileID: 7584692618749425855, guid: 4f1e697fa77674146ba7c27e2236d094, type: 3}
       propertyPath: m_AnchorMax.x
@@ -120499,6 +120550,7 @@ MonoBehaviour:
     no ser\xE1 f\xE1cil, la tensi\xF3n en las calles es solo el comienzo. Colombia
     no ser\xE1 la misma despu\xE9s de este d\xEDa"
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &1495057886
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -130188,6 +130240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 20
+  healthSlider: {fileID: 0}
 --- !u!4 &1571513149
 Transform:
   m_ObjectHideFlags: 0
@@ -131819,6 +131872,7 @@ MonoBehaviour:
     un sombrero oscuro y una chaqueta larga, como si quisiera pasar desapercibido,
     pero no conoc\xEDa la verdadera importancia de lo que acababa de hacer"
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &1601978152
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -136888,6 +136942,7 @@ MonoBehaviour:
     La ciudad est\xE1 a punto de explotar, y este evento dejar\xE1 cicatrices profundas
     en el pa\xEDs"
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &1681067753
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -144806,6 +144861,7 @@ MonoBehaviour:
     a este asesinato. Pero recuerda, el pa\xEDs entero pronto estar\xE1 en llamas,
     y esta ser\xE1 una herida que tomar\xE1 d\xE9cadas en sanar."
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!136 &1765164124
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -146601,6 +146657,134 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: d205bba4d197a5f45a64abfcc6123c20, type: 3}
   m_PrefabInstance: {fileID: 322311551}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1793857009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793857010}
+  - component: {fileID: 1793857011}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793857010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793857009}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1287600196}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1793857011
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793857009}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e1840d94607fc6a408ab7bb7a97e945a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1794231208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153833,6 +154017,7 @@ MonoBehaviour:
     Tendr\xE1s que buscar una forma de rodearlas\u2026 tal vez por ese callej\xF3n
     lateral."
   _positions: {fileID: 0}
+  libro: {fileID: 0}
 --- !u!1 &1902636369 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2051364216636306802, guid: 36d132f6e5934b145a84aa404f3b832d, type: 3}
@@ -175927,7 +176112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -103.25651
+      value: -103.45
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -175935,7 +176120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 139.4606
+      value: 139.71
       objectReference: {fileID: 0}
     - target: {fileID: 3377901930742327872, guid: 180214f06d8c4124aabfcef8fe1a015e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -176118,3 +176303,4 @@ SceneRoots:
   - {fileID: 674425264}
   - {fileID: 612378491}
   - {fileID: 1571513149}
+  - {fileID: 1287600196}
