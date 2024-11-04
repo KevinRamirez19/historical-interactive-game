@@ -7,7 +7,7 @@ public class Mensaje1 : MonoBehaviour
     public GameObject messageUI;
     public float displayDuration = 10f;  // Duración en segundos para mostrar el mensaje
 
-    private float timer = 0f;
+    private float timer = 1f;
     private bool isMessageActive = false;
     private bool hasMessageBeenShown = false; // Para mostrar el mensaje solo una vez
 
