@@ -9,31 +9,50 @@ public class HandleScenes : MonoBehaviour
 {
     public bool _firstScene = false, _secondScene = false;
 
-    public GameObject _block1, _block2, _book, _paint;
+    public GameObject _block1, _block2, _book, _paint1, _paint2, _paint3, _paint4;
     void Start()
     {
         _block1 = GameObject.Find("Bloqueo1");
         _block2 = GameObject.Find("Bloqueo2");
         _book = GameObject.FindWithTag("LibroBogotazo");
-        _paint = GameObject.FindWithTag("PaintBogotazo"); 
+        _paint1 = GameObject.FindWithTag("PaintBogotazo");
+        _paint2 = GameObject.FindWithTag("PaintBatalladeBoyacá");
+        _paint3 = GameObject.FindWithTag("PaintFrenteNacional");
+        _paint4 = GameObject.FindWithTag("PaintGuerraDeLosMilDias");
         _book.SetActive(false);
+        _paint2.GetComponent<Animator>().enabled = false;
+        _paint4.GetComponent<Animator>().enabled = false;
+        _paint1.GetComponent<Animator>().enabled = false;
+        _paint3.GetComponent<Animator>().enabled = false;
     }
 
     void Update()
     {
-        int mostrarObjeto = PlayerPrefs.GetInt("mostrarObjeto", 0); 
+        int mostrarObjeto = PlayerPrefs.GetInt("mostrarObjeto", 0);
+
+        if (mostrarObjeto == 0)
+        {
+            _paint2.GetComponent<Animator>().enabled = true;
+        }
+
 
         if (mostrarObjeto == 1)
         {
-            _paint.GetComponent<Animator>().enabled = false; 
+            _paint4.GetComponent<Animator>().enabled = true;
+        }
 
-            _block1.SetActive(false); 
-            _book.SetActive(true);
-        }
-        else
+
+        if (mostrarObjeto == 2)
         {
-            _block1.SetActive(true);
+            _paint1.GetComponent<Animator>().enabled = true; 
         }
+        
+
+        if (mostrarObjeto == 3)
+        {
+            _paint3.GetComponent<Animator>().enabled = true;
+        }
+
 
         if (mostrarObjeto == 2)
         {
