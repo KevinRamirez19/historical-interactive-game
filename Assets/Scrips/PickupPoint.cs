@@ -1,8 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI; // Necesario para manejar la UI
+using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using UnityEngine.Networking; // Necesario para manejar TextMeshPro
+using UnityEngine.Networking;
 
 public class PickupPoint : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class PickupPoint : MonoBehaviour
     [SerializeField] private float cantidadPuntos;
     [SerializeField] private Puntaje puntaje;
 
-    [SerializeField] private Canvas mensajeRecolectaCanvas; // Canvas para mostrar mensaje al jugador
+    [SerializeField] public Canvas mensajeRecolectaCanvas; // Canvas para mostrar mensaje al jugador
     private float mensajeDuracion = 6f; // Duración en segundos para mostrar el mensaje
 
     private void Start()
@@ -74,16 +74,16 @@ public class PickupPoint : MonoBehaviour
         if (mensajeRecolectaCanvas != null)
         {
             mensajeRecolectaCanvas.gameObject.SetActive(true);
-            Invoke(nameof(OcultarMensajeRecolecta), mensajeDuracion); // Oculta el canvas después de 6 segundos
+            Invoke(nameof(DestruirMensajeRecolecta), 5f); // Destruye el canvas después de 5 segundos
         }
     }
 
-    // Método para ocultar el canvas de recolección
-    private void OcultarMensajeRecolecta()
+    // Método para destruir el canvas de recolección
+    private void DestruirMensajeRecolecta()
     {
         if (mensajeRecolectaCanvas != null)
         {
-            mensajeRecolectaCanvas.gameObject.SetActive(false);
+            Destroy(mensajeRecolectaCanvas.gameObject);
         }
     }
 }

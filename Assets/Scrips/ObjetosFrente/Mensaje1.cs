@@ -5,9 +5,9 @@ public class Mensaje1 : MonoBehaviour
 {
     public string message = "En los años 50, Colombia sufría violencia extrema entre liberales y conservadores...";
     public GameObject messageUI;
-    public float displayDuration = 10f;  // Duración en segundos para mostrar el mensaje
+    public float displayDuration = 5f;  // Duración en segundos para mostrar el mensaje
 
-    private float timer = 1f;
+    private float timer = 0f;
     private bool isMessageActive = false;
     private bool hasMessageBeenShown = false; // Para mostrar el mensaje solo una vez
 
@@ -56,7 +56,7 @@ public class Mensaje1 : MonoBehaviour
                 uiText.text = message;
             }
 
-            timer = 0f;
+            timer = 0f; // Reinicia el temporizador al mostrar el mensaje
             isMessageActive = true;
             hasMessageBeenShown = true;
         }
