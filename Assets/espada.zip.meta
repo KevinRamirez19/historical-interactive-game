@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/espada.zip.meta
 guid: 33baf58e2370bed499bb080d2040cf75
+========
+guid: 58f7e79a87c79824597746e8c1bfe400
+>>>>>>>> 0b3927c51fba1e02e0bad0b4dcbbb3de2610c681:Assets/SimpleNaturePack/SimpleNaturePack_2020.3_HDRP_v1.24.unitypackage.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
