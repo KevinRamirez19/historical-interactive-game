@@ -18,8 +18,8 @@ public class HandleScenes : MonoBehaviour
         _paint1 = GameObject.FindWithTag("PaintBogotazo");
         _paint2 = GameObject.FindWithTag("PaintBatalladeBoyacá");
         _paint3 = GameObject.FindWithTag("PaintFrenteNacional");
-        _paint4 = GameObject.FindWithTag("PaintGuerraDeLosMilDias");
-        _book.SetActive(false);
+        _paint4 = GameObject.FindWithTag("PaintGuerraMilDias");
+        //_book.SetActive(false);
         _paint2.GetComponent<Animator>().enabled = false;
         _paint4.GetComponent<Animator>().enabled = false;
         _paint1.GetComponent<Animator>().enabled = false;
@@ -51,16 +51,6 @@ public class HandleScenes : MonoBehaviour
         if (mostrarObjeto == 3)
         {
             _paint3.GetComponent<Animator>().enabled = true;
-        }
-
-
-        if (mostrarObjeto == 2)
-        {
-            _block2.SetActive(false); 
-        }
-        else
-        {
-            _block2.SetActive(true);
         }
 
 

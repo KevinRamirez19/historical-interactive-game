@@ -57,7 +57,7 @@ public class Clues : MonoBehaviour
                 }
 
                 // Activa el libro después de la interacción
-                libro.SetActive(true);
+                //libro.SetActive(true);
                 Debug.Log("El libro ha aparecido después de la interacción.");
             }
         }

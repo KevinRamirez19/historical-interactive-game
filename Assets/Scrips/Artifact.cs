@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 public class Objeto : MonoBehaviour
 {
     private MissionBB missionManager;
+    [SerializeField] private float cantidadPuntos;
+    [SerializeField] private Puntaje puntaje;
 
     public string mensaje = "Has recogido el objeto"; // Mensaje personalizado para cada objeto
 
@@ -21,6 +23,7 @@ public class Objeto : MonoBehaviour
         {
             // Llama al método de recogida en el MissionBB
             missionManager.RecogerObjeto(gameObject);
+            puntaje.sumarPuntos(cantidadPuntos);
         }
     }
 }

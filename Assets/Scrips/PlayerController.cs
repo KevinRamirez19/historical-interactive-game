@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     public bool HasFlag = false; // Indica si el jugador tiene la bandera.
     public GameObject canvasWin;
+    public int num;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,9 +27,16 @@ public class PlayerController : MonoBehaviour
     }
     public void IrAlMenuPrincipal()
     {
-        PlayerPrefs.SetInt("mostrarObjeto", 1);
+        PlayerPrefs.SetInt("mostrarObjeto", num);
         Time.timeScale = 1;
         SceneManager.LoadScene("Lobby");
+    }
+
+    public void IrALosCreditos()
+    {
+        PlayerPrefs.SetInt("mostrarObjeto", num);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Creditos");
     }
 
     [System.Serializable]

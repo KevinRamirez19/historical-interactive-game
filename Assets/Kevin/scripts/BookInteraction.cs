@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class InteraccionLibro : MonoBehaviour
 {
+    public GameObject canva;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            PlayerPrefs.SetInt("mostrarObjeto", 1);
-            SceneManager.LoadScene(1);  // Asegúrate de que "Lobby" es el nombre correcto de la escena
+            canva.SetActive(true);
         }
     }
 }

@@ -17,6 +17,7 @@ public class MissionManager : MonoBehaviour
     private int puntajeTotal = 0; // Puntaje total del jugador
     public int puntajePorRecolecta = 20; // Puntaje por recoger un mensaje
     public int puntajePorEntrega = 50; // Puntaje por entregar un mensaje
+    public GameObject canvas;
 
     void Start()
     {
@@ -114,6 +115,8 @@ public class MissionManager : MonoBehaviour
             // Si llegamos aquí, la última entrega ha sido completada
             ShowMessage("Todas las entregas completadas. Misión finalizada.");
             ShowFinalMessage(); // Muestra mensaje de fin del juego
+
+            canvas.SetActive(true);
         }
     }
 
