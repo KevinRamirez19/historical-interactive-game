@@ -35,7 +35,7 @@ public class ScenaryBoyaca : MonoBehaviour
         {
             scenaryId = 0,
             scenaryName = "Batalla de Boyaca",
-            description = "Actualmente te encuentras en el segundo escenario, suerte",
+            description = "Actualmente te encuentras en el primer escenario, suerte",
             order = 2,
             isDeleted = false
         });
