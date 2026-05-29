@@ -83,33 +83,13 @@ Through interactive environments, players can actively participate in the learni
 
 ## Screenshots
 
-### Main Menu
 
-*Add screenshot here*
-
-### Historical Environment
-
-*Add screenshot here*
-
-### Gameplay
-
-*Add screenshot here*
-
-### Interactive Elements
-
-*Add screenshot here*
 
 ---
 
 ## Trailer
 
-*Add trailer link here*
-
-Example:
-
-```text
-https://youtube.com/your-trailer-link
-```
+https://www.youtube.com/watch?v=ujZSkoID7EQ&t=4s 
 
 ---
 
