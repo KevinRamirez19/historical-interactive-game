@@ -81,9 +81,9 @@ Through interactive environments, players can actively participate in the learni
 
 ---
 
-## Screenshots
+## Gameplay Demo
 
-
+![Gameplay Demo](./videoGame.gif)
 
 ---
 
